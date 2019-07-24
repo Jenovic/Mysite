@@ -3,11 +3,12 @@ import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
+import './scss/style.scss';
 
 const App = () => (
   <BrowserRouter>
     <>
-      <Helmet titleTemplate="%s | Medenta E-Learning" />
+      <Helmet titleTemplate="%s | My Site" />
       <Navbar />
       <Switch />
       Hello World
