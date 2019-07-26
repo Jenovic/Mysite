@@ -1,0 +1,195 @@
+$size: 30px;
+$border: 2px;
+$bg: #233d4d;
+$static: #0073e6;
+$active: #00cc44;
+
+.hero {
+  background-color: #0073e6;
+  img {
+    width: 40%;
+  }
+
+  .level {
+    .level-item {
+      .icon {
+        margin: 0.25em;
+      }
+
+      .vl {
+        border-left: 1px solid white;
+        height: 150px;
+        margin: 0 1em;
+      }
+
+      .description {
+        width: 256px;
+        text-align: left;
+
+        a {
+          color: #00cc44;
+        }
+
+        // .next {
+        //   opacity: 0;
+        //   transition: opacity 800ms;
+        // }
+
+        // a:hover .next {
+        //   opacity: 1;
+        // }
+      }
+
+      .circle-btn.btn-2 {
+        .icon {
+          color: $bg;
+        }
+        &:hover {
+          .icon {
+            animation: arrowmove 0.75s ease-in-out;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+
+      .circle-btn.btn-2 .circle-bg::after {
+        content: '';
+        position: absolute;
+        top: $border;
+        left: $border;
+        width: $size - ($border * 2);
+        height: $size - ($border * 2);
+        border-radius: 100%;
+        background: $static;
+      }
+    }
+  }
+}
+
+.circle-btn {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  width: $size;
+  height: $size;
+  line-height: $size;
+  overflow: hidden;
+  left: 5%;
+  margin-left: -($size/2);
+}
+
+.explore {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+  color: $static;
+  text-align: center;
+  line-height: $size;
+  transition: color 0.2s ease-in;
+}
+
+/* CIRCLE BTN 2 */
+.circle-btn.btn-2 {
+  .icon {
+    color: $bg;
+  }
+  &:hover {
+    .icon {
+      animation: arrowmove 0.75s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.circle-btn.btn-2 .circle-bg::after {
+  content: '';
+  position: absolute;
+  top: $border;
+  left: $border;
+  width: $size - ($border * 2);
+  height: $size - ($border * 2);
+  border-radius: 100%;
+  background: $static;
+}
+
+.circle-btn.btn-2 {
+  .circle-bg span {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    em {
+      position: absolute;
+      border-radius: 999px;
+      width: 100%;
+      height: 100%;
+      background: $active;
+      transition: transform 0.25s linear;
+    }
+    &:first-child {
+      left: 0%;
+      em {
+        left: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        transform-origin: 0% 50%;
+      }
+    }
+    &:last-child {
+      left: 50%;
+      em {
+        left: -100%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transform-origin: 100% 50%;
+        transition-delay: 0.25s;
+      }
+    }
+  }
+  &:hover {
+    .circle1 span,
+    .circle-bg span {
+      &:first-child {
+        em {
+          transform: rotate(-180deg);
+          transition: transform 0.5s ease-out;
+          transition-delay: 0.25s;
+        }
+      }
+      &:last-child {
+        em {
+          transform: rotate(-180deg);
+          transition: transform 0.25s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@keyframes circleround {
+  0% {
+    transform: rotate(-90deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes arrowmove {
+  0% {
+    top: 2px;
+  }
+
+  100% {
+    top: -3px;
+  }
+}

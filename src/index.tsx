@@ -3,15 +3,15 @@ import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 import './scss/style.scss';
 
 const App = () => (
   <BrowserRouter>
     <>
       <Helmet titleTemplate="%s | My Site" />
-      <Navbar />
+      <Hero />
       <Switch />
-      Hello World
     </>
   </BrowserRouter>
 );
