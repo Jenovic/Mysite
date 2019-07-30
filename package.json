@@ -2,7 +2,7 @@
   "name": "mysite",
   "version": "1.0.0",
   "description": "Jenovic's website",
-  "main": "index.js",
+  "main": "index.tsx",
   "repository": "https://github.com/Jenovic/Mysite.git",
   "author": "Jenovic Mbuyi Lumu",
   "license": "MIT",

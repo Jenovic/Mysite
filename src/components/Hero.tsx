@@ -15,6 +15,10 @@ class Hero extends React.Component<Props, State> {
       <section className="hero is-fullheight is-bold ">
         <div className="hero-body">
           <div className="container">
+          <div className="level topContent">
+            <p className="level-item">Home</p>
+            <p className="level-item">Subscribe</p>
+          </div>
             <div>
               <img
                 src={require('../assets/7-2-technology-picture.png')}
@@ -37,8 +41,7 @@ class Hero extends React.Component<Props, State> {
                 <div className="vl" />
                 <p className="description">
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s.
+                  typesetting industry. Lorem Ipsum has been the industry.
                   <br />
                   <a href="">
                     <span>
