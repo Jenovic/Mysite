@@ -15,10 +15,6 @@ class Hero extends React.Component<Props, State> {
       <section className="hero is-fullheight is-bold ">
         <div className="hero-body">
           <div className="container">
-          <div className="level topContent">
-            <p className="level-item">Home</p>
-            <p className="level-item">Subscribe</p>
-          </div>
             <div>
               <img
                 src={require('../assets/7-2-technology-picture.png')}
@@ -29,15 +25,54 @@ class Hero extends React.Component<Props, State> {
 
             <div className="level has-text-centered">
               <p className="level-item">
-                <span className="icon is-large fas fa-3x has-text-centered">
-                  <i className="fab fa-github" />
-                </span>
-                <span className="icon is-large fas fa-3x has-text-centered">
-                  <i className="fab fa-twitter" />
-                </span>
-                <span className="icon fas fa-3x has-text-centered">
-                  <i className="fab fa-kaggle" />
-                </span>
+                <div id='contact-info'>
+                  <div className='links'>
+                    <a href="">
+                      <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span className="icon is-large fas fa-3x has-text-centered">
+                          <i className="fab fa-linkedin-in"></i>
+                        </span>
+                      </div>
+                    </a>
+                    <a href="" className='orange-shadow'>
+                      <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span className="icon is-large fas fa-3x has-text-centered">
+                          <i className="fab fa-github" />
+                        </span>
+                      </div>
+                    </a>
+                    <a href="" className='orange-border'>
+                      <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span className="icon is-large fas fa-3x has-text-centered">
+                          <i className="fab fa-twitter" />
+                        </span>
+                      </div>
+                    </a>
+                    <a href="" className='orange-background'>
+                      <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span className="icon fas fa-3x has-text-centered">
+                          <i className="fab fa-kaggle" />
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
                 <div className="vl" />
                 <p className="description">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -61,7 +96,7 @@ class Hero extends React.Component<Props, State> {
                         </div>
                       </div>
                     </span>
-                    <span>Getting started</span>
+                    <span className="link-text">Getting started</span>
                   </a>
                 </p>
               </p>

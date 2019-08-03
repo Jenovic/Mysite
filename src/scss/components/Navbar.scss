@@ -1,3 +1,35 @@
 .navbar {
-    background-color: #094062;
+    // background-color: #094062;
+    background-color: rgba(50, 115, 220, 0);
+    position: absolute;
+    width: 100%;
+
+    a {
+      color: #FFF;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    a:hover, a:focus {
+      color: #00AFEA;
+      background-color:transparent !important;
+      text-decoration: none;
+    }
+
+    .navbar-start {
+      margin-left: 10em;
+      a {
+        margin-left: 2em;
+      }
+    }
+
+    .navbar-end {
+      a.button {
+        background-color: rgba(50, 115, 220, 0.3);
+        box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.2);
+        border: 1px solid #FFF;
+        margin-top: .75em;
+        text-decoration: none;
+      }
+    }
 }

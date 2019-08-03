@@ -1,20 +1,135 @@
 $size: 30px;
 $border: 2px;
 $bg: #233d4d;
-$static: #0073e6;
-$active: #00cc44;
+$static: #00AFEA;
+$active: #00c9b7;
+$started: #004967;
+$color-bright: #f2f1c6;
+$color-orange: #FF6138;
+$color-dark-grey: #2c3135;
 
 .hero {
-  background-color: #0073e6;
+  //background-color: #0073e6;
+  background-image: linear-gradient(to bottom, #004967, #00537f, #005c97, #0064b0, #006bc7, #0174d3, #017ce0, #0085ec, #0091ef, #009df0, #00a8f0, #04b2ef);
+  position: relative;
   img {
     width: 40%;
   }
 
   .level {
     .level-item {
-      .icon {
-        margin: 0.25em;
-        color: #094062;
+      #contact-info {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        .links {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        a {
+          text-decoration: none;
+          color: $color-bright;
+          font-size: .5em;
+        }
+
+        .links a {
+          display: block;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid transparent;
+            transition: all .3s;
+          }
+
+          &:hover::after {
+            --transformed-box-diagonal-length: 164%;
+            width: var(--transformed-box-diagonal-length);
+            left: calc( (100% - var(--transformed-box-diagonal-length)) / 2 );
+          }
+
+          div {
+            position: relative;
+            display: block;
+            width: 40px;
+            height: 40px;
+            transition: transform .3s;
+            margin: 1.5em;
+          }
+
+          span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            border: 1px solid $color-bright;
+            border-radius: 5px;
+
+            &:nth-child(5) {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+            }
+          }
+        }
+
+        .links a:hover div {
+          transform: rotate(-35deg) skew(20deg);
+        }
+
+        .links a:hover span:nth-child(5) {
+          transform: translate(20px, -20px);
+          opacity: 1;
+
+        }
+        .links a:hover span:nth-child(4) {
+          transform: translate(15px, -15px);
+          opacity: .8;
+        }
+        .links a:hover span:nth-child(3) {
+          transform: translate(10px, -10px);
+          opacity: .6;
+        }
+        .links a:hover span:nth-child(2) {
+          transform: translate(5px, -5px);
+          opacity: .4;
+        }
+        .links a:hover span:nth-child(1) {
+          opacity: .2;
+        }
+
+        /* orange background spans */
+        .links a.orange-background span {
+          background: $active;
+          border-color: $color-bright;
+        }
+        .links a.orange-background span:nth-child(5) {
+          background: #00AFEA;
+        }
+
+
+        /* orange shadow */
+        .links a.orange-shadow:hover span {
+          box-shadow: -1px 1px 3px $active;
+        }
+
+        /* orange border  */
+        .links a.orange-border span {
+          border-color: $active;
+        }
+        .links a.orange-border span:nth-child(5) {
+          border-color: $color-bright;
+        }
       }
 
       .vl {
@@ -29,10 +144,15 @@ $active: #00cc44;
         text-align: left;
 
         a {
-          color: #00cc44;
+          color: $started;
           display: flex;
           font-style: italic;
+          font-weight: 500;
           margin-left: .5em;
+
+          .link-text {
+            line-height: 1.7;
+          }
         }
       }
 
@@ -77,11 +197,16 @@ $active: #00cc44;
 .explore {
   position: absolute;
   z-index: 2;
-  font-size: 12px;
+  font-size: 14px;
   color: $static;
   margin: 0;
+  margin-left: 0.2em;
   padding: 0;
   line-height: $size;
+}
+
+.icon {
+  height: 2rem;
 }
 
 /* CIRCLE BTN 2 */
@@ -120,7 +245,7 @@ $active: #00cc44;
       border-radius: 999px;
       width: 100%;
       height: 100%;
-      background: $active;
+      background: $started;
       transition: transform 0.25s linear;
     }
     &:first-child {

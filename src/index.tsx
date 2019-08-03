@@ -10,6 +10,7 @@ const App = () => (
   <BrowserRouter>
     <>
       <Helmet titleTemplate="%s | My Site" />
+      <Navbar />
       <Hero />
       <Switch />
     </>
