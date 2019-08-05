@@ -33,6 +33,9 @@ class Navbar extends React.Component<Props, State> {
                 About
               </a>
               <a className="navbar-item" href="#">
+                Blog
+              </a>
+              <a className="navbar-item" href="#">
                 Contact us
               </a>
             </div>

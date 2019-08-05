@@ -15,12 +15,16 @@ class Hero extends React.Component<Props, State> {
       <section className="hero is-fullheight is-bold ">
         <div className="hero-body">
           <div className="container">
-            <div>
+            <div className="bg-circle"></div>
+            <div className="sm-circle"></div>
+            <div className="bg-open-circle"></div>
+            <div className="sm-open-circle"></div>
+            <div className="middle-content">
+              <h1>A Place to showcase Projects.</h1>
               <img
                 src={require('../assets/7-2-technology-picture.png')}
                 className="is-pulled-right"
               />
-              <img src={require('../assets/7-2-technology-picture.png')} />
             </div>
 
             <div className="level has-text-centered">

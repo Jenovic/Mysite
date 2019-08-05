@@ -7,14 +7,77 @@ $started: #004967;
 $color-bright: #f2f1c6;
 $color-orange: #FF6138;
 $color-dark-grey: #2c3135;
+$white:#FFF;
+$circle-blue: #00537f;
 
 .hero {
-  //background-color: #0073e6;
   background-image: linear-gradient(to bottom, #004967, #00537f, #005c97, #0064b0, #006bc7, #0174d3, #017ce0, #0085ec, #0091ef, #009df0, #00a8f0, #04b2ef);
   position: relative;
-  img {
-    width: 40%;
+
+  .bg-circle {
+    background: $circle-blue;
+    border-radius: 500px;
+    height: 700px;
+    margin: -180px 0px 0px -180px;
+    opacity: .5;
+    position: absolute;
+    width: 700px;
   }
+
+  .sm-circle {
+    background: $active;
+    border-radius: 100px;
+    height: 80px;
+    opacity: .5;
+    position: absolute;
+    margin: 250px 0 0 580px;
+    width: 80px;
+  }
+
+  .bg-open-circle {
+    background: rgba(50, 115, 220, 0);
+    border-radius: 400px;
+    border: 5px solid $static;
+    height: 700px;
+    opacity: .2;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0px -200px -190px 0px;
+    width: 700px;
+  }
+
+  .sm-open-circle {
+    background: rgba(50, 115, 220, 0);
+    border-radius: 400px;
+    border: 5px solid $static;
+    height: 400px;
+    opacity: .2;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    //margin: 0px -200px -190px 0px;
+    width: 400px;
+  }
+
+  .middle-content {
+    display: flex;
+    align-items: center;
+    img {
+      width: 40%;
+      z-index: 2;
+    }
+
+    h1 {
+      color: $white;
+      font-size: 80px;
+      line-height: 1;
+      z-index: 2;
+    }
+  }
+
 
   .level {
     .level-item {
@@ -22,6 +85,7 @@ $color-dark-grey: #2c3135;
         align-items: center;
         display: flex;
         justify-content: center;
+        z-index: 10;
 
         .links {
           display: flex;
@@ -114,7 +178,7 @@ $color-dark-grey: #2c3135;
           border-color: $color-bright;
         }
         .links a.orange-background span:nth-child(5) {
-          background: #00AFEA;
+          background: $static;
         }
 
 
@@ -133,7 +197,7 @@ $color-dark-grey: #2c3135;
       }
 
       .vl {
-        border-left: 1px solid white;
+        border-left: 1px solid $white;
         height: 110px;
         margin: 0 1em;
       }
