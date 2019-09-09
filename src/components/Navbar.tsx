@@ -40,9 +40,9 @@ class Navbar extends React.Component<Props, State> {
               </a>
             </div>
             <div className="navbar-end">
-              <a className="navbar-item button" href="#">
+              <button className="navbar-item">
                 Subscribe
-              </a>
+              </button>
             </div>
           </div>
         </div>
