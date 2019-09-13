@@ -16,16 +16,25 @@ class Navbar extends React.Component<Props, State> {
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="#">
-              <img src="https://bulma.io/images/bulma-logo.png" />
+              <img src={require('../assets/telegram-logo.png')} />
             </a>
-            <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="true" data-target="mainNavbar">
+            <a className="navbar-item logo-text" href="#">
+              eXplore
+            </a>
+            <a
+              role="button"
+              className="navbar-burger burger"
+              aria-label="menu"
+              aria-expanded="true"
+              data-target="mainNavbar"
+            >
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </a>
           </div>
           <div id="mainNavbar" className="navbar-menu">
-            <div className="navbar-start">
+            <div className="navbar-end">
               <a className="navbar-item" href="#">
                 Home
               </a>
@@ -38,8 +47,8 @@ class Navbar extends React.Component<Props, State> {
               <a className="navbar-item" href="#">
                 Contact us
               </a>
-            </div>
-            <div className="navbar-end">
+              {/* </div> */}
+              {/* <div className="navbar-end"> */}
               <a className="navbar-item button" href="#">
                 Subscribe
               </a>

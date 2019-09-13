@@ -29,8 +29,8 @@ class Hero extends React.Component<Props, State> {
 
             <div className="level has-text-centered">
               <p className="level-item">
-                <div id='contact-info'>
-                  <div className='links'>
+                <div id="contact-info">
+                  <div className="links">
                     <a href="">
                       <div>
                         <span></span>
@@ -42,7 +42,7 @@ class Hero extends React.Component<Props, State> {
                         </span>
                       </div>
                     </a>
-                    <a href="" className='orange-shadow'>
+                    <a href="" className="orange-shadow">
                       <div>
                         <span></span>
                         <span></span>
@@ -53,7 +53,7 @@ class Hero extends React.Component<Props, State> {
                         </span>
                       </div>
                     </a>
-                    <a href="" className='orange-border'>
+                    <a href="" className="orange-border">
                       <div>
                         <span></span>
                         <span></span>
@@ -64,7 +64,7 @@ class Hero extends React.Component<Props, State> {
                         </span>
                       </div>
                     </a>
-                    <a href="" className='orange-background'>
+                    <a href="" className="orange-background">
                       <div>
                         <span></span>
                         <span></span>
