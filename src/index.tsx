@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Content from './components/content';
 import './scss/style.scss';
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
       <Helmet titleTemplate="%s | My Site" />
       <Navbar />
       <Hero />
+      <Content />
       <Switch />
     </>
   </BrowserRouter>

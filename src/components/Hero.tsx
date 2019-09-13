@@ -7,9 +7,7 @@ interface Props {
   match: any;
 }
 
-interface State {}
-
-class Hero extends React.Component<Props, State> {
+class Hero extends React.Component<Props> {
   render() {
     return (
       <section className="hero is-fullheight is-bold ">
