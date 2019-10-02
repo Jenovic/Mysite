@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import HeroAnimation from './HeroAnimation';
 
 interface Props {
   history: any;
@@ -18,7 +19,8 @@ class Hero extends React.Component<Props> {
             <div className="bg-open-circle"></div>
             <div className="sm-open-circle"></div>
             <div className="middle-content">
-              <h1>A Place to showcase Projects.</h1>
+              {/* <h1>A Place to showcase Projects.</h1> */}
+              <HeroAnimation></HeroAnimation>
               <img
                 src={require('../assets/7-2-technology-picture.png')}
                 className="is-pulled-right"
