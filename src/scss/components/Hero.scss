@@ -79,7 +79,10 @@ $circle-blue: #00537f;
   .middle-content {
     display: flex;
     align-items: center;
+    margin-bottom: 2em;
     img {
+      // box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
+      border-radius: 15px;
       width: 40%;
       z-index: 2;
     }
@@ -90,6 +93,7 @@ $circle-blue: #00537f;
       line-height: 1;
       width: 60%;
       z-index: 2;
+      padding-left: 1em;
     }
   }
 
