@@ -1,3 +1,48 @@
 .card {
+  background-color: #333;
   border-bottom: 1em solid #00c9b7;
+  box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
+  border-radius: 8px;
+  transition: width 2s;
+  transition: all 0.2s ease-in-out;
+
+  img {
+    height: 110%;
+  }
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 70px;
+  }
+
+  .card__line {
+    stroke: #00afea;
+  }
+
+  .description {
+    padding-top: 3em;
+
+    p {
+      color: white;
+    }
+  }
+
+  &:hover {
+    transition: width 2s;
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+
+    img {
+      height: 150%;
+    }
+
+    svg {
+      top: 150px;
+    }
+
+    .description {
+      padding-top: 7em;
+    }
+  }
 }

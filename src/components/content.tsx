@@ -11,12 +11,13 @@ interface Props {
 class Content extends React.Component<Props> {
   render() {
     return (
-      <section className="hero is-fullheight is-primary">
+      <section className="is-fullheight is-primary">
         <div className="container">
-          <div className="main">
-            <p>just a sample text</p>
-          </div>
+          <div className="main"></div>
           <div className="columns is-centered is-multiline articles">
+            <Article></Article>
+            <Article></Article>
+            <Article></Article>
             <Article></Article>
             <Article></Article>
             <Article></Article>

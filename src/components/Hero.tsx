@@ -19,7 +19,6 @@ class Hero extends React.Component<Props> {
             <div className="bg-open-circle"></div>
             <div className="sm-open-circle"></div>
             <div className="middle-content">
-              {/* <h1>A Place to showcase Projects.</h1> */}
               <HeroAnimation></HeroAnimation>
               <img
                 src={require('../assets/7-2-technology-picture.png')}
@@ -104,6 +103,13 @@ class Hero extends React.Component<Props> {
                   </a>
                 </p>
               </p>
+            </div>
+            <div className="hero-foot has-text-centered">
+              <a href="">
+                <span className="icon has-text-white is-large">
+                  <i className="fas fa-chevron-down fa-2x"></i>
+                </span>
+              </a>
             </div>
           </div>
         </div>
