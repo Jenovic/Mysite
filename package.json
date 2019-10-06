@@ -15,11 +15,13 @@
     "migrate": "node_modules/.bin/sequelize db:migrate",
     "migrate:rollback": "node_modules/.bin/sequelize db:migrate:undo",
     "make:migration": "node_modules/.bin/sequelize migration:generate --name",
-    "test": "cross-env NODE_ENV=test ts-mocha src/tests/**/*.test.ts"
+    "test": "cross-env NODE_ENV=test ts-mocha src/tests/**/*.test.ts",
+    "homepage": "https://github.com/Jenovic/Mysite.git"
   },
   "dependencies": {
     "animejs": "^3.0.1",
     "bulma": "^0.7.5",
+    "gh-pages": "^2.1.1",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
