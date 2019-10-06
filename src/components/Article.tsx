@@ -5,6 +5,11 @@ interface Props {
   history: any;
   location: any;
   match: any;
+  category: string;
+  tag: string;
+  title: string;
+  date: string;
+  author: string;
 }
 
 class Article extends React.Component<Props> {
@@ -12,9 +17,12 @@ class Article extends React.Component<Props> {
     return (
       <div className="column is-4 is-3-widescreen">
         <a href="" className="article">
-          <div className="card">
+          <div className={this.props.category}>
             <div className="card-header">
               <div className="image">
+                <div className="tags is-right">
+                  <span className="tag">{this.props.tag}</span>
+                </div>
                 <img
                   src={require('../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
                   className="is-pulled-right"
@@ -38,13 +46,16 @@ class Article extends React.Component<Props> {
                 />
               </svg>
               <div className="description">
+                <h1>{this.props.title}</h1>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
+                  Lorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a galley of type
+                  and scrambled it to make a type specimen book.
                 </p>
+                <div className="author-meta">
+                  <p>{this.props.author}</p>
+                  <p>{this.props.date}</p>
+                </div>
               </div>
             </div>
           </div>

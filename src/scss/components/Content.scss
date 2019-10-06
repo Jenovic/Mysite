@@ -1,3 +1,44 @@
-.articles {
-  padding: 5em 0;
+#content {
+  .content-top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h2 {
+    margin-top: 2em;
+  }
+
+  form {
+    color: black;
+    font-size: 1.8em !important;
+    font-weight: 600;
+    margin-top: 2.2em;
+
+    input {
+      border-radius: 12px;
+      font-size: 0.8em;
+      outline: none;
+      padding: 0 0 3px 12px;
+
+      &::placeholder {
+        font-size: 0.8em;
+        opacity: 1;
+      }
+    }
+  }
+
+  .meta-category {
+    display: flex;
+    justify-content: center;
+
+    a.button {
+      border-radius: 12px;
+      margin: 1em 0.5em;
+      text-decoration: none;
+    }
+  }
+
+  .articles {
+    padding: 5em 0;
+  }
 }

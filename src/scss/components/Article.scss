@@ -1,10 +1,39 @@
 .card {
   background-color: #333;
-  border-bottom: 1em solid #00c9b7;
   box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
   border-radius: 8px;
   transition: width 2s;
   transition: all 0.2s ease-in-out;
+
+  &.data {
+    border-bottom: 1em solid #00c9b7;
+
+    .tag {
+      background-color: #00c9b7;
+    }
+  }
+
+  &.research {
+    border-bottom: 1em solid #00afea;
+
+    .tag {
+      background-color: #00afea;
+    }
+  }
+
+  &.analysis {
+    border-bottom: 1em solid #ff6138;
+
+    .tag {
+      background-color: #ff6138;
+    }
+  }
+
+  .tags {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+  }
 
   img {
     height: 110%;
@@ -23,8 +52,19 @@
   .description {
     padding-top: 3em;
 
-    p {
+    p,
+    h1 {
       color: white;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .author-meta {
+      display: flex;
+      justify-content: space-between;
     }
   }
 

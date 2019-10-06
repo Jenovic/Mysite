@@ -81,7 +81,14 @@ class Hero extends React.Component<Props> {
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry.
                   <br />
-                  <a href="">
+                  <a
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 850,
+                        behavior: 'smooth',
+                      });
+                    }}
+                  >
                     <span>
                       <div className="wrapper">
                         <div className="circle-btn btn-2">
@@ -105,8 +112,15 @@ class Hero extends React.Component<Props> {
               </p>
             </div>
             <div className="hero-foot has-text-centered">
-              <a href="">
-                <span className="icon has-text-white is-large">
+              <a
+                onClick={() => {
+                  window.scrollTo({
+                    top: 850,
+                    behavior: 'smooth',
+                  });
+                }}
+              >
+                <span className="icon has-text-white is-large bounce">
                   <i className="fas fa-chevron-down fa-2x"></i>
                 </span>
               </a>
