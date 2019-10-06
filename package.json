@@ -6,6 +6,7 @@
   "repository": "https://github.com/Jenovic/Mysite.git",
   "author": "Jenovic Mbuyi Lumu",
   "license": "MIT",
+  "homepage": "https://jenovic.github.io/Mysite/",
   "scripts": {
     "dev": "concurrently \"npm:api:dev\" \"npm:app:dev\" -n api,app",
     "api:dev": "cross-env NODE_ENV=development nodemon",
@@ -16,7 +17,8 @@
     "migrate:rollback": "node_modules/.bin/sequelize db:migrate:undo",
     "make:migration": "node_modules/.bin/sequelize migration:generate --name",
     "test": "cross-env NODE_ENV=test ts-mocha src/tests/**/*.test.ts",
-    "homepage": "https://github.com/Jenovic/Mysite.git"
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "animejs": "^3.0.1",
