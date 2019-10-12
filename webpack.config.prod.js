@@ -18,12 +18,6 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-        SITE_ENV: JSON.stringify(process.env.SITE_ENV),
-      },
-    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
