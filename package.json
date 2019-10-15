@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "concurrently \"npm:api:dev\" \"npm:app:dev\" -n api,app",
     "api:dev": "cross-env NODE_ENV=development nodemon",
-    "api:prod": "node_modules/.bin/cross-env NODE_ENV=production ts-node --files ./src/api/index.ts",
+    "api:prod": "node_modules/.bin/cross-env NODE_ENV=production ts-node --files ./src/index.tsx",
     "app:dev": "webpack-dev-server --config webpack.config.dev.js",
     "app:prod": "webpack --config webpack.config.prod.js",
     "migrate": "node_modules/.bin/sequelize db:migrate",
