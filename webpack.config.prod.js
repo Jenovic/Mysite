@@ -47,6 +47,10 @@ module.exports = {
         loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
         test: /\.(pdf|ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file-loader',
         query: {
