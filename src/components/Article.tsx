@@ -16,7 +16,7 @@ class Article extends React.Component<Props> {
   render() {
     return (
       <div className="column is-4 is-3-widescreen">
-        <a href="" className="article">
+        <Link className="article" to="/article">
           <div className={this.props.category}>
             <div className="card-header">
               <div className="image">
@@ -59,7 +59,7 @@ class Article extends React.Component<Props> {
               </div>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     );
   }

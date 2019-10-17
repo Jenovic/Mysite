@@ -2,19 +2,25 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Content from './components/Content';
 import './scss/style.scss';
+import Navbar from './components/Navbar';
+import views from './views';
 
 const App = () => (
   <BrowserRouter>
     <>
       <Helmet titleTemplate="%s | My Site" />
       <Navbar />
-      <Hero />
-      <Content />
-      <Switch />
+      <Switch>
+        {views.map((view, index) => (
+          <Route
+            key={index}
+            path={view.path}
+            component={view.component}
+            exact
+          />
+        ))}
+      </Switch>
     </>
   </BrowserRouter>
 );

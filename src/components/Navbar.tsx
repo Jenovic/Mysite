@@ -18,7 +18,7 @@ class Navbar extends React.Component<Props, State> {
             <a className="navbar-item" href="#">
               <img src={require('../assets/telegram-logo.png')} />
             </a>
-            <a className="navbar-item logo-text" href="#">
+            <a className="navbar-item logo-text" href="/">
               eXplore
             </a>
             <a
@@ -35,13 +35,13 @@ class Navbar extends React.Component<Props, State> {
           </div>
           <div id="mainNavbar" className="navbar-menu">
             <div className="navbar-end">
-              <a className="navbar-item" href="#">
+              <a className="navbar-item" href="/">
                 Home
               </a>
               <a className="navbar-item" href="#">
                 About
               </a>
-              <a className="navbar-item" href="#">
+              <a className="navbar-item" href="/articles">
                 Articles
               </a>
               <a className="navbar-item" href="#">
