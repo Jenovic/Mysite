@@ -31,7 +31,7 @@ export default class View extends React.Component<Props, State> {
         <Helmet title="Home" />
         <Hero />
         <section className="is-fullheight is-primary" id="content">
-          <div className="container">
+          <div className="container archive">
             <div className="content-top">
               <h2 className="title is-3 has-text-black">
                 Find here what you're looking for

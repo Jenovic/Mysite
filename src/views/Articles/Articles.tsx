@@ -21,8 +21,26 @@ export default class View extends React.Component<Props, State> {
   render() {
     return (
       <>
+        <Helmet title={'Sample article archive'} />
+        <Breadcrumb
+          breadcrumbs={[
+            {
+              name: 'Home',
+              link: '/',
+            },
+            {
+              name: 'Articles',
+              link: '/articles',
+            },
+          ]}
+          className="articles"
+          backText="Return Home"
+          handleBack={() => {
+            this.props.history.push('/');
+          }}
+        />
         <section className="is-fullheight is-primary" id="content">
-          <div className="container">
+          <div className="container archive">
             <div className="content-top">
               <h2 className="title is-3 has-text-black">
                 Find here what you're looking for

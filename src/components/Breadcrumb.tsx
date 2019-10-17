@@ -6,13 +6,18 @@ interface Props {
   breadcrumbs: { name: string; link: string }[];
   backText?: string;
   handleBack?: Function;
+  className?: string;
 }
 
 class Breadcrumb extends React.Component<Props> {
   render() {
     return (
       <nav className="breadcrumb">
-        <div className="container">
+        <div
+          className={`container ${
+            this.props.className ? this.props.className : ''
+          }`}
+        >
           {this.props.backText !== undefined &&
             this.props.handleBack !== undefined && (
               <a

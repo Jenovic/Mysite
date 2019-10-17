@@ -5,3 +5,24 @@
 @import 'components/Hero';
 @import 'components/Article';
 @import 'components/Content';
+@import 'components/ArticleViewMeta';
+@import 'components/Breadcrumb';
+
+.container {
+  &.archive,
+  &.articles {
+    max-width: 1000px;
+  }
+
+  &.article,
+  &.single {
+    max-width: 800px;
+  }
+}
+
+.article-view {
+  &-content {
+    font-family: 'Raleway, sans-serif';
+    font-size: 20px;
+  }
+}

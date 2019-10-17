@@ -9,7 +9,7 @@ import views from './views';
 const App = () => (
   <BrowserRouter>
     <>
-      <Helmet titleTemplate="%s | My Site" />
+      <Helmet titleTemplate="%s | Explore" />
       <Navbar />
       <Switch>
         {views.map((view, index) => (

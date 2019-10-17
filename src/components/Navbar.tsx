@@ -12,7 +12,7 @@ interface State {}
 class Navbar extends React.Component<Props, State> {
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar is-fixed-top">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="#">

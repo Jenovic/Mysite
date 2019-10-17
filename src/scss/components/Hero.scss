@@ -220,6 +220,7 @@ $circle-blue: #00537f;
 
       .description {
         color: #f8f8f8;
+        font-size: 14px;
         width: 256px;
         text-align: left;
 
@@ -229,6 +230,7 @@ $circle-blue: #00537f;
           font-style: italic;
           font-weight: 500;
           margin-left: 0.5em;
+          margin-top: 5px;
 
           .link-text {
             line-height: 1.7;

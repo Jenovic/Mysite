@@ -84,7 +84,7 @@ class Hero extends React.Component<Props> {
                   <a
                     onClick={() => {
                       window.scrollTo({
-                        top: 850,
+                        top: 800,
                         behavior: 'smooth',
                       });
                     }}
@@ -115,7 +115,7 @@ class Hero extends React.Component<Props> {
               <a
                 onClick={() => {
                   window.scrollTo({
-                    top: 850,
+                    top: 800,
                     behavior: 'smooth',
                   });
                 }}
