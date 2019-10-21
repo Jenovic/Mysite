@@ -1,31 +1,31 @@
 .card {
-  background-color: #333;
+  background-color: $card-gray;
   box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
   border-radius: 8px;
   transition: width 2s;
   transition: all 0.2s ease-in-out;
 
   &.data {
-    border-bottom: 1em solid #00c9b7;
+    border-bottom: 1em solid $active;
 
     .tag {
-      background-color: #00c9b7;
+      background-color: $active;
     }
   }
 
   &.research {
-    border-bottom: 1em solid #00afea;
+    border-bottom: 1em solid $static;
 
     .tag {
-      background-color: #00afea;
+      background-color: $static;
     }
   }
 
   &.analysis {
-    border-bottom: 1em solid #ff6138;
+    border-bottom: 1em solid $color-orange;
 
     .tag {
-      background-color: #ff6138;
+      background-color: $color-orange;
     }
   }
 
@@ -46,7 +46,7 @@
   }
 
   .card__line {
-    stroke: #00afea;
+    stroke: $static;
   }
 
   .description {
@@ -54,7 +54,7 @@
 
     p,
     h1 {
-      color: white;
+      color: $white;
       margin-bottom: 1em;
     }
 

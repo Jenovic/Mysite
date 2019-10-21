@@ -1,21 +1,21 @@
 .navbar {
-  background-color: #00537f;
+  background-color: $circle-blue;
 
   a {
-    color: #fff;
+    color: $white;
     font-size: 14px;
   }
 
   a:hover,
   a:focus {
-    color: #00afea;
+    color: $static;
     background-color: transparent !important;
     text-decoration: none;
   }
 
   .navbar-brand {
     .logo-text {
-      color: #111;
+      color: $black;
       font-size: 24px;
       font-style: italic;
       margin: 0;
@@ -36,7 +36,7 @@
     }
     a.button {
       background-color: rgba(50, 115, 220, 0.13);
-      border: 1px solid #fff;
+      border: 1px solid $white;
       border-radius: 12px;
       margin-top: 0.75em;
       text-decoration: none;
