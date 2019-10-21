@@ -15,7 +15,7 @@ class Navbar extends React.Component<Props, State> {
       <nav className="navbar is-fixed-top">
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item" href="#">
+            <a className="navbar-item" href="/">
               <img src={require('../assets/telegram-logo.png')} />
             </a>
             <a className="navbar-item logo-text" href="/">

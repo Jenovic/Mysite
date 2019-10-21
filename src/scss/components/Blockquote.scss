@@ -6,18 +6,22 @@ blockquote {
 
     &.red {
       border-left: 10px solid $bq-red;
+      background: rgb(245, 177, 177);
     }
 
     &.yellow {
       border-left: 10px solid $bq-yellow;
+      background: rgb(240, 240, 139);
     }
 
     &.blue {
       border-left: 10px solid $bq-blue;
+      background: rgb(141, 196, 248);
     }
 
     &.green {
       border-left: 10px solid $bq-green;
+      background: rgb(190, 236, 190);
     }
   }
 

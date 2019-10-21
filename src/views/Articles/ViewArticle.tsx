@@ -68,7 +68,19 @@ export default class SingleArticle extends React.Component<Props, State> {
                 galley of type and scrambled it to make a type specimen book.
                 <Blockquote
                   paragraph={this.state.quote}
+                  borderColor={'red'}
+                ></Blockquote>
+                <Blockquote
+                  paragraph={this.state.quote}
                   borderColor={'green'}
+                ></Blockquote>
+                <Blockquote
+                  paragraph={this.state.quote}
+                  borderColor={'blue'}
+                ></Blockquote>
+                <Blockquote
+                  paragraph={this.state.quote}
+                  borderColor={'yellow'}
                 ></Blockquote>
               </div>
             </div>

@@ -16,7 +16,7 @@ export default class Blockquote extends React.Component<Props> {
         cite={this.props.citeLink ? this.props.citeLink : ''}
         className={`${
           this.props.borderColor ? `border ${this.props.borderColor}` : ''
-        }${this.props.background ? this.props.background : ''}`}
+        }`}
       >
         <p>{this.props.paragraph}</p>
         <footer>
