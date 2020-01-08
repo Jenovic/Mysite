@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 interface Props {
   history: any;
@@ -47,7 +47,7 @@ class Navbar extends React.Component<Props, State> {
               <a className="navbar-item" href="#">
                 Contact us
               </a>
-              <a className="navbar-item button" href="#">
+              <a className="button" href="#">
                 Subscribe
               </a>
             </div>
