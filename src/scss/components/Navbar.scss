@@ -7,15 +7,6 @@
     font-weight: bold;
   }
 
-  .navbar-end {
-    a.navbar-item:hover,
-    a.navbar-item:focus {
-      color: $static;
-      background-color: transparent !important;
-      text-decoration: none;
-    }
-  }
-
   .navbar-brand {
     .logo-text {
       color: $black;
@@ -27,9 +18,12 @@
   }
 
   .navbar-start {
-    margin-left: 10em;
-    a {
-      margin-left: 2em;
+    margin-left: 4em;
+    a.navbar-item:hover,
+    a.navbar-item:focus {
+      color: $blue-hover;
+      background-color: transparent !important;
+      text-decoration: none;
     }
   }
 
@@ -40,10 +34,9 @@
     a.button {
       background-color: $circle-blue;
       border: 1px solid $white;
-      border-radius: 12px;
+      border-radius: 21px;
       color: $white;
-      margin-top: 0.75em;
-      text-decoration: none;
+      padding: 1.5em;
 
       &:hover {
         background-color: $blue-hover;

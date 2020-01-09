@@ -34,7 +34,7 @@ class Navbar extends React.Component<Props, State> {
             </a>
           </div>
           <div id="mainNavbar" className="navbar-menu">
-            <div className="navbar-end">
+            <div className="navbar-start">
               <a className="navbar-item" href="/">
                 Home
               </a>
@@ -47,9 +47,13 @@ class Navbar extends React.Component<Props, State> {
               <a className="navbar-item" href="#">
                 Contact us
               </a>
-              <a className="button" href="#">
-                Subscribe
-              </a>
+            </div>
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
+                  <a className="button">Subscribe</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
