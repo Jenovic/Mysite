@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import HeroAnimation from './HeroAnimation';
+import AnimatedIcon from './AnimatedIcon';
 
 interface Props {
   history: any;
@@ -30,50 +31,22 @@ class Hero extends React.Component<Props> {
               <p className="level-item">
                 <div id="contact-info">
                   <div className="links">
-                    <a href="">
-                      <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="icon is-large fas fa-3x has-text-centered">
-                          <i className="fab fa-linkedin-in"></i>
-                        </span>
-                      </div>
-                    </a>
-                    <a href="" className="orange-shadow">
-                      <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="icon is-large fas fa-3x has-text-centered">
-                          <i className="fab fa-github" />
-                        </span>
-                      </div>
-                    </a>
-                    <a href="" className="orange-border">
-                      <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="icon is-large fas fa-3x has-text-centered">
-                          <i className="fab fa-twitter" />
-                        </span>
-                      </div>
-                    </a>
-                    <a href="" className="orange-background">
-                      <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span className="icon fas fa-3x has-text-centered">
-                          <i className="fab fa-kaggle" />
-                        </span>
-                      </div>
-                    </a>
+                    <AnimatedIcon link="" iconName="linkedin-in" />
+                    <AnimatedIcon
+                      className="orange-shadow"
+                      link=""
+                      iconName="github"
+                    />
+                    <AnimatedIcon
+                      className="orange-border"
+                      link=""
+                      iconName="twitter"
+                    />
+                    <AnimatedIcon
+                      className="orange-background"
+                      link=""
+                      iconName="kaggle"
+                    />
                   </div>
                 </div>
                 <div className="vl" />
