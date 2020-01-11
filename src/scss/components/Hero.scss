@@ -1,4 +1,4 @@
-.hero {
+.hero-home {
   background-image: linear-gradient(
     to bottom,
     #004967,
@@ -453,4 +453,8 @@ a {
     -webkit-transform: translateY(-15px);
     transform: translateY(-15px);
   }
+}
+
+.hero.archive {
+  background-color: #ff8138;
 }

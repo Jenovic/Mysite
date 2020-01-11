@@ -12,7 +12,7 @@ interface Props {
 class Hero extends React.Component<Props> {
   render() {
     return (
-      <section className="hero is-fullheight is-bold ">
+      <section className="hero is-fullheight is-bold hero-home">
         <div className="hero-body">
           <div className="container">
             <div className="bg-circle"></div>
