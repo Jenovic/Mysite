@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Article from '../components/Article';
+import Tag from '../components/Tag';
 
 interface Props {
   history: any;
@@ -30,31 +31,26 @@ export default class View extends React.Component<Props, State> {
       <>
         <Helmet title="Home" />
         <Hero />
-        <section className="is-fullheight is-primary" id="content">
+        <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="content-top">
-              <h2 className="title is-3 has-text-black">
-                Find here what you're looking for
-              </h2>
-
-              <form>
-                <label>Search: </label>
-                <input type="text" placeholder="search..." />
-              </form>
+            <div className="level content-top">
+              <div className="level-item">
+                <h2 className="title is-3 has-text-black">
+                  Find here what you're looking for
+                </h2>
+              </div>
+              <div className="level-item">
+                <form>
+                  <label>Search: </label>
+                  <input type="text" placeholder="search..." />
+                </form>
+              </div>
             </div>
             <div className="meta-category is-centered">
-              <a className="button" href="#">
-                #
-              </a>
-              <a className="button" href="#">
-                Analysis
-              </a>
-              <a className="button" href="#">
-                Data
-              </a>
-              <a className="button" href="#">
-                Research
-              </a>
+              <Tag tagName="#" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
             </div>
             <div className="columns is-centered is-multiline articles">
               <Article
