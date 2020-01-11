@@ -19,71 +19,73 @@ class Hero extends React.Component<Props> {
             <div className="sm-circle"></div>
             <div className="bg-open-circle"></div>
             <div className="sm-open-circle"></div>
-            <div className="middle-content">
-              <HeroAnimation></HeroAnimation>
-              <img
-                src={require('../assets/7-2-technology-picture.png')}
-                className="is-pulled-right"
-              />
+            <div className="level middle-content">
+              <div className="level-item animation">
+                <HeroAnimation />
+              </div>
+              <div className="level-item image">
+                <img src={require('../assets/7-2-technology-picture.png')} />
+              </div>
             </div>
 
-            <div className="level has-text-centered">
-              <p className="level-item">
-                <div id="contact-info">
-                  <div className="links">
-                    <AnimatedIcon link="" iconName="linkedin-in" />
-                    <AnimatedIcon
-                      className="orange-shadow"
-                      link=""
-                      iconName="github"
-                    />
-                    <AnimatedIcon
-                      className="orange-border"
-                      link=""
-                      iconName="twitter"
-                    />
-                    <AnimatedIcon
-                      className="orange-background"
-                      link=""
-                      iconName="kaggle"
-                    />
-                  </div>
+            <div className="level">
+              <div className="level-item contact-info-icons">
+                <div className="links">
+                  <AnimatedIcon link="" iconName="linkedin-in" />
+                  <AnimatedIcon
+                    className="orange-shadow"
+                    link=""
+                    iconName="github"
+                  />
+                  <AnimatedIcon
+                    className="orange-border"
+                    link=""
+                    iconName="twitter"
+                  />
+                  <AnimatedIcon
+                    className="orange-background"
+                    link=""
+                    iconName="kaggle"
+                  />
                 </div>
                 <div className="vl" />
-                <p className="description">
+              </div>
+
+              <div className="level-item description">
+                <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry.
-                  <br />
-                  <a
-                    onClick={() => {
-                      window.scrollTo({
-                        top: 800,
-                        behavior: 'smooth',
-                      });
-                    }}
-                  >
-                    <span>
-                      <div className="wrapper">
-                        <div className="circle-btn btn-2">
-                          <span className="icon  explore">
-                            <i className="fas fa-arrow-right" />
-                          </span>
-                          <span className="circle-bg">
-                            <span>
-                              <em />
-                            </span>
-                            <span>
-                              <em />
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </span>
-                    <span className="link-text">Getting started</span>
-                  </a>
                 </p>
-              </p>
+                <a
+                  onClick={() => {
+                    window.scrollTo({
+                      top: 800,
+                      behavior: 'smooth',
+                    });
+                  }}
+                >
+                  <span>
+                    <div className="wrapper">
+                      <div className="circle-btn btn-2">
+                        <span className="icon  explore">
+                          <i className="fas fa-arrow-right" />
+                        </span>
+                        <span className="circle-bg">
+                          <span>
+                            <em />
+                          </span>
+                          <span>
+                            <em />
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </span>
+                  <span className="link-text">Getting started</span>
+                </a>
+              </div>
             </div>
+
             <div className="hero-foot has-text-centered">
               <a
                 onClick={() => {
