@@ -2,6 +2,12 @@
   margin-top: 5em;
 
   a {
-    color: $active;
+    color: $white;
+  }
+
+  .is-active {
+    a {
+      color: $white;
+    }
   }
 }

@@ -18,30 +18,38 @@ class Breadcrumb extends React.Component<Props> {
             this.props.className ? this.props.className : ''
           }`}
         >
-          {this.props.backText !== undefined &&
-            this.props.handleBack !== undefined && (
-              <a
-                className="is-pulled-right"
-                onClick={() => {
-                  this.props.handleBack();
-                }}
-              >
-                <Icon iconName="arrow-left" />
-                <span>{this.props.backText}</span>
-              </a>
-            )}
-          <ul>
-            {this.props.breadcrumbs.map((breadcrumb, index) => (
-              <li
-                key={index}
-                className={
-                  index + 1 === this.props.breadcrumbs.length ? 'is-active' : ''
-                }
-              >
-                <Link to={breadcrumb.link}>{breadcrumb.name}</Link>
-              </li>
-            ))}
-          </ul>
+          <div className="navbar-menu">
+            <div className="navbar-start">
+              <ul>
+                {this.props.breadcrumbs.map((breadcrumb, index) => (
+                  <li
+                    key={index}
+                    className={
+                      index + 1 === this.props.breadcrumbs.length
+                        ? 'is-active'
+                        : ''
+                    }
+                  >
+                    <Link to={breadcrumb.link}>{breadcrumb.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="navbar-end">
+              {this.props.backText !== undefined &&
+                this.props.handleBack !== undefined && (
+                  <a
+                    // className="is-pulled-right"
+                    onClick={() => {
+                      this.props.handleBack();
+                    }}
+                  >
+                    <Icon iconName="arrow-left" />
+                    <span>{this.props.backText}</span>
+                  </a>
+                )}
+            </div>
+          </div>
         </div>
       </nav>
     );
