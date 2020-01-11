@@ -6,6 +6,8 @@ import Icon from '../../components/Icon';
 import Article from '../../components/Article';
 import Footer from '../../components/Footer';
 import Tag from '../../components/Tag';
+import Title from '../../components/Title';
+import SearchForm from '../../components/SearchForm';
 
 declare var location: any;
 
@@ -23,44 +25,42 @@ export default class View extends React.Component<Props, State> {
     return (
       <>
         <Helmet title={'Sample article archive'} />
-        <Breadcrumb
-          breadcrumbs={[
-            {
-              name: 'Home',
-              link: '/',
-            },
-            {
-              name: 'Articles',
-              link: '/articles',
-            },
-          ]}
-          className="articles"
-          backText="Return Home"
-          handleBack={() => {
-            this.props.history.push('/');
-          }}
-        />
+        <section className="hero archive">
+          <Breadcrumb
+            breadcrumbs={[
+              {
+                name: 'Home',
+                link: '/',
+              },
+              {
+                name: 'Articles',
+                link: '/articles',
+              },
+            ]}
+            className="articles"
+            backText="Return Home"
+            handleBack={() => {
+              this.props.history.push('/');
+            }}
+          />
+          <div className="level">
+            <Title
+              title="Find here what you're looking for"
+              color="white"
+              size="2"
+              hasMaxWidth={true}
+            />
+            <SearchForm color="white" />
+          </div>
+          <div className="meta-category is-centered">
+            <Tag tagName="#" />
+            <Tag tagName="Analysis" />
+            <Tag tagName="Data" />
+            <Tag tagName="Research" />
+          </div>
+        </section>
         <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="level content-top">
-              <div className="level-item">
-                <h2 className="title is-3 has-text-black">
-                  Find here what you're looking for
-                </h2>
-              </div>
-              <div className="level-item">
-                <form>
-                  <label>Search: </label>
-                  <input type="text" placeholder="search..." />
-                </form>
-              </div>
-            </div>
-            <div className="meta-category is-centered">
-              <Tag tagName="#" />
-              <Tag tagName="Analysis" />
-              <Tag tagName="Data" />
-              <Tag tagName="Research" />
-            </div>
             <div className="columns is-centered is-multiline articles">
               <Article
                 category="card data"

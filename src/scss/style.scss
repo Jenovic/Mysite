@@ -9,11 +9,16 @@
 @import 'components/ArticleViewMeta';
 @import 'components/Breadcrumb';
 @import 'components/Blockquote';
+@import 'components/SearchForm';
+
+.has-width {
+  max-width: 500px;
+}
 
 .container {
   &.archive,
   &.articles {
-    max-width: 1000px;
+    max-width: 1145px;
   }
 
   &.article,

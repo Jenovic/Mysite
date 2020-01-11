@@ -5,6 +5,8 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Article from '../components/Article';
 import Tag from '../components/Tag';
+import Title from '../components/Title';
+import SearchForm from '../components/SearchForm';
 
 interface Props {
   history: any;
@@ -33,18 +35,9 @@ export default class View extends React.Component<Props, State> {
         <Hero />
         <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="level content-top">
-              <div className="level-item">
-                <h2 className="title is-3 has-text-black">
-                  Find here what you're looking for
-                </h2>
-              </div>
-              <div className="level-item">
-                <form>
-                  <label>Search: </label>
-                  <input type="text" placeholder="search..." />
-                </form>
-              </div>
+            <div className="level">
+              <Title title="Find here what you're looking for" />
+              <SearchForm />
             </div>
             <div className="meta-category is-centered">
               <Tag tagName="#" />

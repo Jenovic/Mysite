@@ -1,0 +1,16 @@
+form {
+  font-size: 1.8em !important;
+  font-weight: 600;
+
+  input {
+    border-radius: 12px;
+    font-size: 0.8em;
+    outline: none;
+    padding: 0 0 3px 12px;
+
+    &::placeholder {
+      font-size: 0.8em;
+      opacity: 1;
+    }
+  }
+}
