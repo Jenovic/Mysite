@@ -15,9 +15,6 @@ export default class SearchForm extends React.Component<Props> {
       <div className="level-item search">
         <form>
           <div className="field">
-            <label className={`title is-4 has-text-${this.props.color}`}>
-              {this.props.label}:
-            </label>
             <input id="search" name="search" type="text" value="" />
           </div>
         </form>

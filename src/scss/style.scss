@@ -21,6 +21,12 @@
   }
 }
 
+.title.is-3 {
+  @media only screen and (max-width: 768px) {
+    font-size: 1.1em;
+  }
+}
+
 .top-content {
   align-items: flex-start;
 
@@ -33,6 +39,14 @@
   &.archive,
   &.articles {
     max-width: 1145px;
+  }
+
+  &.archive {
+    margin-top: 3em;
+
+    h2 {
+
+    }
   }
 
   &.article,
