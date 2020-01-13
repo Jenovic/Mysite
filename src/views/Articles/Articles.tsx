@@ -43,7 +43,7 @@ export default class View extends React.Component<Props, State> {
               this.props.history.push('/');
             }}
           />
-          <div className="level">
+          <div className="level top-content">
             <Title
               title="Find here what you're looking for"
               color="white"

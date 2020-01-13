@@ -457,4 +457,9 @@ a {
 
 .hero.archive {
   background-color: #ff8138;
+  padding: 2em 0em 4em 0em;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0em 0em 3em 0em;
+  }
 }

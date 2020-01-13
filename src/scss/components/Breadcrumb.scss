@@ -1,8 +1,10 @@
 .breadcrumb {
   margin-top: 5em;
 
-  a {
+  a,
+  a:hover {
     color: $white;
+    font-weight: bold;
   }
 
   .is-active {

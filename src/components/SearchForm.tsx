@@ -12,12 +12,14 @@ export default class SearchForm extends React.Component<Props> {
   };
   render() {
     return (
-      <div className="level-item">
+      <div className="level-item search">
         <form>
-          <label className={`title is-3 has-text-${this.props.color}`}>
-            {this.props.label}:
-          </label>
-          <input type="text" placeholder="search..." />
+          <div className="field">
+            <label className={`title is-4 has-text-${this.props.color}`}>
+              {this.props.label}:
+            </label>
+            <input id="search" name="search" type="text" value="" />
+          </div>
         </form>
       </div>
     );
