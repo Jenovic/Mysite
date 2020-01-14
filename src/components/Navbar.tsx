@@ -7,9 +7,24 @@ interface Props {
   match: any;
 }
 
-interface State {}
+interface State {
+  isOpen: boolean;
+}
 
 class Navbar extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+  }
+
+  componentWillUpdate() {
+    if (this.state.isOpen) {
+      this.setState({ isOpen: false });
+    }
+  }
+
   render() {
     return (
       <nav className="navbar is-fixed-top">
@@ -24,6 +39,9 @@ class Navbar extends React.Component<Props, State> {
             <a
               role="button"
               className="navbar-burger burger"
+              onClick={() => {
+                this.setState({ isOpen: !this.state.isOpen });
+              }}
               aria-label="menu"
               aria-expanded="true"
               data-target="mainNavbar"
@@ -33,7 +51,10 @@ class Navbar extends React.Component<Props, State> {
               <span aria-hidden="true"></span>
             </a>
           </div>
-          <div id="mainNavbar" className="navbar-menu">
+          <div
+            id="mainNavbar"
+            className={`navbar-menu ${this.state.isOpen ? 'is-active' : ''}`}
+          >
             <div className="navbar-start">
               <a className="navbar-item" href="/">
                 Home

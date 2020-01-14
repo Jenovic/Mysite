@@ -7,6 +7,18 @@
     font-weight: bold;
   }
 
+  .is-active {
+    .navbar-start {
+      margin-left: 1.5em;
+    }
+
+    .navbar-end {
+      a.button {
+        margin-left: 1em;
+      }
+    }
+  }
+
   .navbar-brand {
     .logo-text {
       color: $black;
