@@ -8,7 +8,6 @@ import Footer from '../../components/Footer';
 import Tag from '../../components/Tag';
 import Title from '../../components/Title';
 import SearchForm from '../../components/SearchForm';
-import VivusComponent from '../../components/vivusComponent';
 
 declare var location: any;
 
@@ -27,7 +26,6 @@ export default class View extends React.Component<Props, State> {
       <>
         <Helmet title={'Sample article archive'} />
         <section className="hero archive">
-          <VivusComponent />
           <Breadcrumb
             breadcrumbs={[
               {
