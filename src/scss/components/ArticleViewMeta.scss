@@ -3,27 +3,38 @@
     font-family: $primary-font;
     font-size: 40px;
     margin: 0.5em 0 0.5em 0;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 32px;
+      padding: 0 1em;
+    }
   }
 }
 
 .media {
-  margin-bottom: 3em;
+  &.meta {
+    margin-bottom: 3em;
 
-  .media-left {
-    img {
-      border-radius: 50%;
-      height: 60px;
-      overflow: hidden;
-      position: relative;
-      width: 60px;
+    .media-left {
+      img {
+        border-radius: 50%;
+        height: 60px;
+        overflow: hidden;
+        position: relative;
+        width: 60px;
+      }
     }
-  }
 
-  .media-content {
-    padding: 5px 0;
-    .author-name,
-    .publish-date {
-      font-family: $primary-font;
+    .media-content {
+      padding: 5px 0;
+      .author-name,
+      .publish-date {
+        font-family: $primary-font;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      padding: 0 2em;
     }
   }
 }

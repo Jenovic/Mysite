@@ -1,15 +1,32 @@
 .breadcrumb {
-  margin-top: 5em;
+  .articles {
+    margin-top: 5em;
 
-  a,
-  a:hover {
-    color: $white;
-    font-weight: bold;
+    a,
+    a:hover {
+      color: $white;
+      font-weight: bold;
+    }
+
+    .is-active {
+      a {
+        color: $black;
+      }
+    }
   }
 
-  .is-active {
-    a {
-      color: $white;
+  .article {
+    margin-top: 5em;
+    a,
+    a:hover {
+      color: $active;
+      font-weight: bold;
+    }
+
+    .is-active {
+      a {
+        color: $black;
+      }
     }
   }
 }

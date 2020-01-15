@@ -13,7 +13,7 @@ export default class ArticleViewMeta extends React.Component<Props> {
         <div className="article-view-title">
           <h1>{this.props.title}</h1>
         </div>
-        <div className="media">
+        <div className="media meta">
           <div className="media-left image is-64x64">
             <img
               src={require('../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}

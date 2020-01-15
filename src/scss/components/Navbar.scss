@@ -1,5 +1,6 @@
 .navbar {
   background-color: $white;
+  z-index: 1000 !important;
 
   a {
     color: $off-black;
