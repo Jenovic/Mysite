@@ -11,7 +11,7 @@ require('dotenv').config();
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: `${path.resolve(__dirname, './src')}/index.tsx`,
+  entry: `${path.resolve(__dirname, './src/app/')}/index.tsx`,
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js?v=[contenthash]',
@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/app/index.html',
     }),
   ],
   module: {
