@@ -1,0 +1,30 @@
+{
+  "plantuml.diagramsRoot": "uml",
+  "plantuml.exportOutDir": "uml",
+  "plantuml.exportSubFolder": false,
+  "cSpell.words": [
+    "admin",
+    "asynciterable",
+    "bulma",
+    "contenthash",
+    "devtool",
+    "esnext",
+    "fontawesome",
+    "formik",
+    "fortawesome",
+    "fullheight",
+    "fullwidth",
+    "hoverable",
+    "middlewares",
+    "mimetype",
+    "mobx",
+    "multipart",
+    "multipartfiles",
+    "resave",
+    "tsed",
+    "uuidv",
+    "vcentered",
+    "webp",
+    "woff"
+  ]
+}

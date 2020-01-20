@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "module": "commonjs",
-    "target": "es5",
-    "jsx": "react",
-    "strictNullChecks": false,
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "lib": ["es2015"],
+    "types": ["reflect-metadata"],
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2015", "esnext", "esnext.asynciterable"],
-    "skipLibCheck": true
-  },
-  "include": ["**/*", "../lib/*"],
-  "exclude": ["**/*.test.ts"]
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": false
+  }
 }

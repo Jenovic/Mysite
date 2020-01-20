@@ -2,10 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+require('dotenv').config();
+
+/**
+ * Webpack Development Configuration
+ */
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  entry: `${path.resolve(__dirname, './src/app/')}/index.tsx`,
+  entry: `${path.resolve(__dirname, './src/app')}/index.tsx`,
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
@@ -15,12 +20,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
-        SITE_ENV: JSON.stringify(process.env.SITE_ENV),
+        APP_ENV: JSON.stringify(process.env.APP_ENV),
       },
     }),
     new HtmlWebpackPlugin({
       template: './src/app/index.html',
-      //favicon: './src/app/assets/icon.png', /TO BE ADDED/
     }),
   ],
   module: {
@@ -34,7 +38,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         options: {
-          configFile: 'tsconfig.json',
+          configFile: 'src/app/tsconfig.json',
         },
       },
       {
@@ -54,10 +58,14 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
   },
   devServer: {
-    port: process.env.SITE_PORT,
+    port: process.env.APP_PORT,
     open: true,
     historyApiFallback: true,
     contentBase: path.join(__dirname, 'dist'),
     overlay: true,
+    proxy: {
+      '/api': `http://localhost:${process.env.API_PORT}`,
+      '/docs': `http://localhost:${process.env.API_PORT}`,
+    },
   },
 };

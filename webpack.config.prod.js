@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 require('dotenv').config();
 
@@ -11,13 +10,19 @@ require('dotenv').config();
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: `${path.resolve(__dirname, './src/app/')}/index.tsx`,
+  entry: `${path.resolve(__dirname, './src/app')}/index.tsx`,
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js?v=[contenthash]',
     publicPath: '/',
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+        APP_ENV: JSON.stringify(process.env.APP_ENV),
+      },
+    }),
     new HtmlWebpackPlugin({
       template: './src/app/index.html',
     }),
@@ -33,15 +38,11 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         options: {
-          configFile: 'tsconfig.json',
+          configFile: 'src/app/tsconfig.json',
         },
       },
       {
         test: /\.s(a|c)ss$/,
-        loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
         loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
