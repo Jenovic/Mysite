@@ -36,8 +36,8 @@ export default class View extends React.Component<{}, State> {
     return (
       <>
         <Helmet title="Login" />
-        <div className="is-fullheight">
-          <div className="columns is-centered">
+        <div className="hero is-fullheight">
+          <div className="hero-body columns is-centered">
             <div className="column is-8">
               <Errors errors={this.state.errors} />
               {this.state.didRegister ? (

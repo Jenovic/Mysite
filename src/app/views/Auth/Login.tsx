@@ -4,7 +4,6 @@ import { observer } from 'mobx-react';
 import { Redirect } from 'react-router';
 import Auth from '../../services/Auth';
 
-// import Hero from '../../components/Hero';
 import LoginForm from '../../components/LoginForm';
 import Notification from '../../components/Notification';
 import Card from '../../components/Card';
@@ -32,8 +31,8 @@ export default class View extends React.Component<{}, State> {
     return (
       <>
         <Helmet title="Login" />
-        <div className="is-fullheight">
-          <div className="columns is-centered">
+        <div className="hero is-fullheight">
+          <div className="hero-body columns is-centered">
             <div className="column is-8">
               {this.state.didInvalidate && (
                 <Notification className="is-danger">
