@@ -31,7 +31,7 @@ export default class View extends React.Component<{}, State> {
     return (
       <>
         <Helmet title="Login" />
-        <div className="hero is-fullheight">
+        <div className="hero is-fullheight login-page">
           <div className="hero-body columns is-centered">
             <div className="column is-8">
               {this.state.didInvalidate && (
@@ -39,7 +39,7 @@ export default class View extends React.Component<{}, State> {
                   Could not log you in
                 </Notification>
               )}
-              <Card>
+              <div className="card-login box">
                 <LoginForm
                   handleSubmit={async ({ email, password }, setSubmitting) => {
                     this.setState({ didInvalidate: false });
@@ -51,7 +51,7 @@ export default class View extends React.Component<{}, State> {
                     }
                   }}
                 />
-              </Card>
+              </div>
             </div>
           </div>
         </div>

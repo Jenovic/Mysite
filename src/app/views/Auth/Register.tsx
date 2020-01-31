@@ -36,7 +36,7 @@ export default class View extends React.Component<{}, State> {
     return (
       <>
         <Helmet title="Login" />
-        <div className="hero is-fullheight">
+        <div className="hero is-fullheight register-page">
           <div className="hero-body columns is-centered">
             <div className="column is-8">
               <Errors errors={this.state.errors} />
@@ -46,7 +46,7 @@ export default class View extends React.Component<{}, State> {
                   to login.
                 </Notification>
               ) : (
-                <Card>
+                <div className="card-register box">
                   <UserForm
                     buttonText="Register"
                     handleSubmit={async (
@@ -70,7 +70,7 @@ export default class View extends React.Component<{}, State> {
                       }
                     }}
                   />
-                </Card>
+                </div>
               )}
             </div>
           </div>

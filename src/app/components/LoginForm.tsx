@@ -63,7 +63,7 @@ export default class LoginForm extends React.Component<Props> {
                 )}
                 <button
                   type="submit"
-                  className="button is-primary"
+                  className="button login-button"
                   disabled={isSubmitting}
                 >
                   Login

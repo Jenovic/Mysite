@@ -463,3 +463,17 @@ a {
     padding: 0em 0em 3em 0em;
   }
 }
+
+.hero {
+  &.login-page,
+  &.register-page {
+    background-color: $light-gray;
+  }
+
+  .login-button {
+    background-color: $active;
+    border: 1px solid $white;
+    border-radius: 21px;
+    color: $white;
+  }
+}
