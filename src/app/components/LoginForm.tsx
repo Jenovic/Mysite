@@ -19,36 +19,34 @@ export default class LoginForm extends React.Component<Props> {
       >
         {({ values, handleChange, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
-            <div className="columns">
-              <div className="column is-half">
-                <label htmlFor="email" className="label">
-                  Email
-                </label>
-                <div className="control">
-                  <input
-                    name="email"
-                    id="email"
-                    type="email"
-                    className="input"
-                    onChange={handleChange}
-                    value={values.email}
-                  />
-                </div>
+            <div className="field">
+              <label htmlFor="email" className="label">
+                Email
+              </label>
+              <div className="control">
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  className="input"
+                  onChange={handleChange}
+                  value={values.email}
+                />
               </div>
-              <div className="column is-half">
-                <label htmlFor="password" className="label">
-                  Password
-                </label>
-                <div className="control">
-                  <input
-                    name="password"
-                    id="password"
-                    type="password"
-                    className="input"
-                    onChange={handleChange}
-                    value={values.password}
-                  />
-                </div>
+            </div>
+            <div className="field">
+              <label htmlFor="password" className="label">
+                Password
+              </label>
+              <div className="control">
+                <input
+                  name="password"
+                  id="password"
+                  type="password"
+                  className="input"
+                  onChange={handleChange}
+                  value={values.password}
+                />
               </div>
             </div>
             <div className="field">

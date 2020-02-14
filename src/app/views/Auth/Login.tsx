@@ -33,7 +33,7 @@ export default class View extends React.Component<{}, State> {
         <Helmet title="Login" />
         <div className="hero is-fullheight login-page">
           <div className="hero-body columns is-centered">
-            <div className="column is-8">
+            <div className="column is-6">
               {this.state.didInvalidate && (
                 <Notification className="is-danger">
                   Could not log you in
