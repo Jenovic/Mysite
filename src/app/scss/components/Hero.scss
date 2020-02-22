@@ -456,7 +456,7 @@ a {
 }
 
 .hero.archive {
-  background-color: #ff8138;
+  background-color: #f8b271;
   padding: 2em 0em 4em 0em;
 
   @media only screen and (max-width: 768px) {
@@ -468,10 +468,17 @@ a {
   &.login-page,
   &.register-page {
     background-color: $light-gray;
+    // background-color: $purple;
+
+    .card-register {
+      margin-top: 3em;
+    }
   }
 
-  .login-button {
+  .login-button,
+  .register-button {
     background-color: $active;
     color: $white;
+    font-weight: bold;
   }
 }

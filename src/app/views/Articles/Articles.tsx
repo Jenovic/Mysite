@@ -47,7 +47,7 @@ export default class View extends React.Component<Props, State> {
             <Title
               title="Find here what you're looking for"
               color="white"
-              size="2"
+              size="1"
               hasMaxWidth={true}
             />
             <SearchForm color="white" />

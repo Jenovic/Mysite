@@ -36,8 +36,7 @@ export default class View extends React.Component<Props, State> {
         <section className="is-fullheight is-primary content">
           <div className="container archive">
             <div className="level">
-              <Title title="Find here what you're looking for" />
-              <SearchForm />
+              <Title title="Latest articles and news" size="1" />
             </div>
             <div className="meta-category is-centered">
               <Tag tagName="#" />
@@ -63,41 +62,6 @@ export default class View extends React.Component<Props, State> {
               <Article
                 category="card analysis"
                 tag="Analysis"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="card data"
-                tag="Data"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="card analysis"
-                tag="Analysis"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="card data"
-                tag="Data"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="card research"
-                tag="Research"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="card research"
-                tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"

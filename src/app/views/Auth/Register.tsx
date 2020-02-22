@@ -10,6 +10,7 @@ import UserForm from '../../components/UserForm';
 import Card from '../../components/Card';
 import Errors from '../../components/Errors';
 import Notification from '../../components/Notification';
+import Title from '../../components/Title';
 
 interface State {
   didRegister: boolean;
@@ -46,31 +47,37 @@ export default class View extends React.Component<{}, State> {
                   to login.
                 </Notification>
               ) : (
-                <div className="card-register box">
-                  <UserForm
-                    buttonText="Register"
-                    handleSubmit={async (
-                      { name, email, password, confirmPassword },
-                      setSubmitting,
-                    ) => {
-                      setSubmitting(false);
-                      try {
-                        await Auth.register(
-                          name,
-                          email,
-                          password,
-                          confirmPassword,
-                        );
-                        this.setState({ didRegister: true, errors: [] });
-                      } catch (e) {
-                        this.setState({
-                          didRegister: false,
-                          errors: e.response.data,
-                        });
-                      }
-                    }}
+                <>
+                  <Title
+                    title="Hi 🖐️, sign up for your free account"
+                    size="2"
                   />
-                </div>
+                  <div className="card-register box">
+                    <UserForm
+                      buttonText="Register"
+                      handleSubmit={async (
+                        { name, email, password, confirmPassword },
+                        setSubmitting,
+                      ) => {
+                        setSubmitting(false);
+                        try {
+                          await Auth.register(
+                            name,
+                            email,
+                            password,
+                            confirmPassword,
+                          );
+                          this.setState({ didRegister: true, errors: [] });
+                        } catch (e) {
+                          this.setState({
+                            didRegister: false,
+                            errors: e.response.data,
+                          });
+                        }
+                      }}
+                    />
+                  </div>
+                </>
               )}
             </div>
           </div>

@@ -94,7 +94,7 @@ export default class LoginForm extends React.Component<Props> {
               <div className="buttons is-right">
                 <button
                   type="submit"
-                  className="button is-primary"
+                  className="button is-primary register-button"
                   disabled={isSubmitting}
                 >
                   {this.props.buttonText}
