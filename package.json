@@ -17,8 +17,7 @@
     "migrate:rollback": "node_modules/.bin/sequelize db:migrate:undo",
     "make:migration": "node_modules/.bin/sequelize migration:generate --name",
     "test": "cross-env NODE_ENV=test ts-mocha src/tests/**/*.test.ts",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "animejs": "^3.0.1",
