@@ -72,7 +72,7 @@
     margin-bottom: 2em;
 
     .image {
-      justify-content: flex-start;
+      justify-content: center;
       img {
         border-radius: 15px;
         width: 50%;
@@ -456,7 +456,7 @@ a {
 }
 
 .hero.archive {
-  background-color: #f8b271;
+  background-color: $section-blue;
   padding: 2em 0em 4em 0em;
 
   @media only screen and (max-width: 768px) {

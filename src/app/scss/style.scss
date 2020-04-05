@@ -2,16 +2,9 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '../fonts/Raleway-Regular.ttf';
 @import './variables.scss';
-@import 'components/Navbar.scss';
-@import 'components/Hero';
-@import 'components/Article';
-@import 'components/Content';
-@import 'components/ArticleViewMeta';
-@import 'components/Breadcrumb';
-@import 'components/Blockquote';
-@import 'components/SearchForm';
 @import './mixins';
 @import './grid';
+@import './components/all';
 
 .has-width {
   max-width: 500px;

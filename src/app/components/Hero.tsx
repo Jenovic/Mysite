@@ -24,7 +24,7 @@ class Hero extends React.Component<Props> {
                 <HeroAnimation />
               </div>
               <div className="level-item image">
-                <img src={require('../assets/7-2-technology-picture.png')} />
+                <img src={require('../assets/3D-PNG-HD.png')} />
               </div>
             </div>
 
