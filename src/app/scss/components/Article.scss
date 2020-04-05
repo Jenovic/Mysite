@@ -39,19 +39,7 @@
     height: 110%;
   }
 
-  svg {
-    position: absolute;
-    left: 0;
-    top: 70px;
-  }
-
-  .card__line {
-    stroke: $static;
-  }
-
   .description {
-    padding-top: 3em;
-
     p,
     h1 {
       color: $white;
@@ -70,19 +58,9 @@
 
   &:hover {
     transition: width 2s;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.2s ease-in-out;
 
-    img {
-      height: 150%;
-    }
-
-    svg {
-      top: 150px;
-    }
-
-    .description {
-      padding-top: 7em;
-    }
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
   }
 }
