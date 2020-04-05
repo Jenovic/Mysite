@@ -63,56 +63,56 @@ export default class View extends React.Component<Props, State> {
           <div className="container archive">
             <div className="cols is-centered is-multiline articles">
               <Article
-                category="card data"
+                category="article_card data"
                 tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card research"
+                category="article_card research"
                 tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card analysis"
+                category="article_card analysis"
                 tag="Analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card data"
+                category="article_card data"
                 tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card analysis"
+                category="article_card analysis"
                 tag="Analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card data"
+                category="article_card data"
                 tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card research"
+                category="article_card research"
                 tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="card research"
+                category="article_card research"
                 tag="Research"
                 title="The title"
                 author="Sanil Purryag"

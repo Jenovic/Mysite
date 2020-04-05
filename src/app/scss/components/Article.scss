@@ -1,4 +1,4 @@
-.card {
+.article_card {
   background-color: $card-gray;
   box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
   border-radius: 8px;
@@ -29,6 +29,10 @@
     }
   }
 
+  .tag {
+    color: $white;
+  }
+
   .tags {
     position: absolute;
     top: 10%;
@@ -39,19 +43,7 @@
     height: 110%;
   }
 
-  svg {
-    position: absolute;
-    left: 0;
-    top: 70px;
-  }
-
-  .card__line {
-    stroke: $static;
-  }
-
   .description {
-    padding-top: 3em;
-
     p,
     h1 {
       color: $white;
@@ -70,19 +62,33 @@
 
   &:hover {
     transition: width 2s;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.2s ease-in-out;
 
-    img {
-      height: 150%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+
+    &.data {
+      border-bottom: 1em solid darken($active, 10%);
+
+      .tag {
+        background-color: darken($active, 10%);
+      }
     }
 
-    svg {
-      top: 150px;
+    &.research {
+      border-bottom: 1em solid darken($static, 10%);
+
+      .tag {
+        background-color: darken($static, 10%);
+      }
     }
 
-    .description {
-      padding-top: 7em;
+    &.analysis {
+      border-bottom: 1em solid darken($color-orange, 10%);
+
+      .tag {
+        background-color: darken($color-orange, 10%);
+      }
     }
   }
 }
