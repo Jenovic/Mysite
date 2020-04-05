@@ -61,7 +61,7 @@ export default class View extends React.Component<Props, State> {
         </section>
         <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="columns is-centered is-multiline articles">
+            <div className="cols is-centered is-multiline articles">
               <Article
                 category="card data"
                 tag="Data"

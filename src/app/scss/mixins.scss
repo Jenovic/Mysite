@@ -1,0 +1,43 @@
+@mixin cfix() {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin bp($size, $type: min, $pixels: $bp-sm) {
+  @if $size == 'sm' {
+    @media screen and ($type + -width: $bp-sm) {
+      @content;
+    }
+  } @else if $size == 'md' {
+    @media screen and ($type + -width: $bp-md) {
+      @content;
+    }
+  } @else if $size == 'lg' {
+    @media screen and ($type + -width: $bp-lg) {
+      @content;
+    }
+  } @else if $size == 'xl' {
+    @media screen and ($type + -width: $bp-xl) {
+      @content;
+    }
+  } @else if $size == 'custom' {
+    @media screen and ($type + -width: $pixels) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin psuedo($display: block, $position: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $position;
+}

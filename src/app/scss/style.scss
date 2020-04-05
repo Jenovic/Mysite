@@ -10,6 +10,8 @@
 @import 'components/Breadcrumb';
 @import 'components/Blockquote';
 @import 'components/SearchForm';
+@import './mixins';
+@import './grid';
 
 .has-width {
   max-width: 500px;

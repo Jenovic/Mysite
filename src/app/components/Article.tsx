@@ -15,7 +15,7 @@ interface Props {
 class Article extends React.Component<Props> {
   render() {
     return (
-      <div className="column is-4 is-4-widescreen">
+      <div className="col is-12 is-6-md is-4-lg is-4-widescreen">
         <Link className="article" to="/article">
           <div className={this.props.category}>
             <div className="card-header">
