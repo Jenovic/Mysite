@@ -29,6 +29,10 @@
     }
   }
 
+  .tag {
+    color: $white;
+  }
+
   .tags {
     position: absolute;
     top: 10%;
@@ -62,5 +66,29 @@
     transition: all 0.2s ease-in-out;
 
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+
+    &.data {
+      border-bottom: 1em solid darken($active, 10%);
+
+      .tag {
+        background-color: darken($active, 10%);
+      }
+    }
+
+    &.research {
+      border-bottom: 1em solid darken($static, 10%);
+
+      .tag {
+        background-color: darken($static, 10%);
+      }
+    }
+
+    &.analysis {
+      border-bottom: 1em solid darken($color-orange, 10%);
+
+      .tag {
+        background-color: darken($color-orange, 10%);
+      }
+    }
   }
 }
