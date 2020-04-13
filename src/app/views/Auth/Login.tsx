@@ -26,7 +26,7 @@ export default class View extends React.Component<{}, State> {
 
   render() {
     if (Auth.user) {
-      return <Redirect to="/" />;
+      return <Redirect to="/admin" />;
     }
     return (
       <>
