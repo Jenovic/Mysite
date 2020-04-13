@@ -36,10 +36,25 @@ export default class View extends React.Component<Props, State> {
         <section className="is-fullheight is-primary content">
           <div className="container archive">
             <div className="level">
-              <Title title="Latest articles and news" size="1" />
+              <Title title="Latest articles and news" size="1" color="blue" />
             </div>
             <div className="meta-category is-centered">
               <Tag tagName="#" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
+              <Tag tagName="Analysis" />
+              <Tag tagName="Data" />
+              <Tag tagName="Research" />
               <Tag tagName="Analysis" />
               <Tag tagName="Data" />
               <Tag tagName="Research" />

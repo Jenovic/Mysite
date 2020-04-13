@@ -45,14 +45,14 @@
       margin-left: 4em;
     }
     a.button {
-      background-color: $circle-blue;
-      border: 1px solid $white;
+      border: 1px solid $circle-blue;
       border-radius: 21px;
-      color: $white;
+      color: $circle-blue;
       padding: 1.5em;
 
       &:hover {
         background-color: $blue-hover;
+        color: $white;
       }
 
       &:focus {
