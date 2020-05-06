@@ -21,6 +21,7 @@ const sectionStyle = {
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'right',
   backgroundSize: '23%',
+  borderTop: '25px solid white',
 };
 
 interface State {}
