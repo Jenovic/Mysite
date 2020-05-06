@@ -8,12 +8,20 @@ import Footer from '../../components/Footer';
 import Tag from '../../components/Tag';
 import Title from '../../components/Title';
 import SearchForm from '../../components/SearchForm';
+const background = require('../../assets/article.svg');
 
 declare var location: any;
 
 interface Props {
   history: any;
 }
+
+const sectionStyle = {
+  backgroundImage: `url(${background})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'right',
+  backgroundSize: '23%',
+};
 
 interface State {}
 
@@ -25,7 +33,7 @@ export default class View extends React.Component<Props, State> {
     return (
       <>
         <Helmet title={'Sample article archive'} />
-        <section className="hero archive">
+        <section className="hero archive" style={sectionStyle}>
           <Breadcrumb
             breadcrumbs={[
               {
