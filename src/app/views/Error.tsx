@@ -11,11 +11,15 @@ export default class View extends React.Component {
     return (
       <>
         <Helmet title="Error" />
-        <div className="is-fullheight-with-navbar">
-          <h1 className="title is-3">Page Not Found</h1>
-          <Link className="button" to="/">
-            Return Home
-          </Link>
+        <div className="hero is-fullheight-with-navbar login-page">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">Page Not Found</h1>
+              <Link className="button" to="/">
+                Return Home
+              </Link>
+            </div>
+          </div>
         </div>
       </>
     );
