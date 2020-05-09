@@ -12,13 +12,11 @@ export default class SearchForm extends React.Component<Props> {
   };
   render() {
     return (
-      <div className="level-item search">
-        <form>
-          <div className="field">
-            <input id="search" name="search" type="text" value="" />
-          </div>
-        </form>
-      </div>
+      <form>
+        <div className="field">
+          <input id="search" name="search" type="text" value="" />
+        </div>
+      </form>
     );
   }
 }

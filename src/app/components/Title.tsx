@@ -15,15 +15,13 @@ export default class Title extends React.Component<Props> {
   };
   render() {
     return (
-      <div className="level-item">
-        <h2
-          className={`title is-${this.props.size} has-text-${
-            this.props.color
-          } ${this.props.hasMaxWidth ? 'has-width' : ''}`}
-        >
-          {this.props.title}
-        </h2>
-      </div>
+      <h2
+        className={`title is-${this.props.size} has-text-${this.props.color} ${
+          this.props.hasMaxWidth ? 'has-width' : ''
+        }`}
+      >
+        {this.props.title}
+      </h2>
     );
   }
 }
