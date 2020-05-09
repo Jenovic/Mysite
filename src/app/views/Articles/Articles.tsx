@@ -20,8 +20,7 @@ const sectionStyle = {
   backgroundImage: `url(${background})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'right',
-  backgroundSize: '23%',
-  borderTop: '25px solid white',
+  backgroundSize: 'contain',
 };
 
 interface State {}
@@ -34,7 +33,7 @@ export default class View extends React.Component<Props, State> {
     return (
       <>
         <Helmet title={'Sample article archive'} />
-        <section className="hero archive" style={sectionStyle}>
+        <section className="hero archive">
           <Breadcrumb
             breadcrumbs={[
               {
@@ -52,15 +51,19 @@ export default class View extends React.Component<Props, State> {
               this.props.history.push('/');
             }}
           />
-          <div className="level top-content">
-            <Title
-              title="Find here what you're looking for"
-              color="white"
-              size="1"
-              hasMaxWidth={true}
-            />
-            <SearchForm color="white" />
+
+          <div className="top-content">
+            <div className="container" style={sectionStyle}>
+              <Title
+                title="Find here what you're looking for"
+                color="white"
+                size="1"
+                hasMaxWidth={true}
+              />
+              <SearchForm color="white" />
+            </div>
           </div>
+
           <div className="meta-category is-centered">
             <Tag tagName="#" />
             <Tag tagName="Analysis" />
