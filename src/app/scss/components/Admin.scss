@@ -84,6 +84,13 @@
           .building-blocks {
             border-radius: 0;
           }
+
+          .featured_image {
+            select {
+              height: 3.25em;
+              margin-left: 1em;
+            }
+          }
         }
       }
     }
