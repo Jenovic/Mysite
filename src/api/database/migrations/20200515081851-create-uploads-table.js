@@ -11,11 +11,6 @@ module.exports = {
       url: {
         type: Sequelize.STRING,
       },
-      type: {
-        type: Sequelize.ENUM('IMAGE', 'DOCUMENT'),
-        defaultValue: 'IMAGE',
-        allowNull: false,
-      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
       deletedAt: Sequelize.DATE,

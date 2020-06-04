@@ -1,175 +1,162 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { observer } from 'mobx-react';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import AdminDashboard from '../../components/AdminDashboard';
-import AdminArticles from '../../components/AdminArticleIndex';
-import AdminUsers from '../../components/AdminUserIndex';
-import AdminArticle from '../../components/AdminArticle';
-import Icon from '../../components/Icon';
-import Footer from '../../components/Footer';
+import { Tooltip } from 'react-tippy';
+// import AdminAuth from '../../services/AdminAuth';
 import Auth from '../../services/Auth';
-import Error from '../Error';
+const pkg = require('../../../../package.json');
 
-declare var location: any;
+import Section from '../../components/Section';
+import Icon from '../../components/Icon';
+import Hero from '../../components/Hero';
+import Modal from '../../components/Modal';
+import Card from '../../components/Card';
 
 interface Props {
   history: any;
 }
 
 interface State {
-  showDashboard: boolean;
-  showArticles: boolean;
-  showUsers: boolean;
-  createNewArticle: boolean;
+  isLoggingOut: boolean;
 }
 
-/**
- * Admin
- */
+@observer
 export default class View extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      showDashboard: true,
-      showArticles: false,
-      showUsers: false,
-      createNewArticle: false,
+      isLoggingOut: false,
     };
   }
 
   render() {
     if (!Auth.user) {
-      console.log('hello');
-      return <Error />;
+      return <Redirect to="/login" />;
     }
     return (
       <>
-        <Helmet title={'admin'} />
-        <section className="admin is-fullheight is-primary content">
+        <Helmet title="Admin Panel" />
+        <section className="admin section">
           <div className="container">
-            <div className="cols is-centered is-multiline articles">
-              <div className="col is-12 is-3-md sidebar">
-                <aside className="menu">
-                  <p className="menu-label">General</p>
-                  <ul className="menu-list">
-                    <li>
-                      <a
-                        className={this.state.showDashboard && 'is-active'}
-                        onClick={async () => {
-                          await this.setState({
-                            showDashboard: true,
-                            showArticles: false,
-                            showUsers: false,
-                            createNewArticle: false,
-                          });
-                        }}
-                      >
-                        <Icon iconName="columns" />
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className={
-                          (this.state.showArticles ||
-                            this.state.createNewArticle) &&
-                          'is-active-parent'
-                        }
-                      >
-                        <Icon iconName="newspaper" />
-                        Articles
-                      </a>
-                      <ul>
-                        <li>
-                          <a
-                            className={this.state.showArticles && 'is-active'}
-                            onClick={async () => {
-                              await this.setState({
-                                showArticles: true,
-                                showDashboard: false,
-                                showUsers: false,
-                                createNewArticle: false,
-                              });
-                            }}
-                          >
-                            All
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            className={
-                              this.state.createNewArticle && 'is-active'
-                            }
-                            onClick={async () => {
-                              await this.setState({
-                                showArticles: false,
-                                showDashboard: false,
-                                showUsers: false,
-                                createNewArticle: true,
-                              });
-                            }}
-                          >
-                            Add an article
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <p className="menu-label">Administration</p>
-                  <ul className="menu-list">
-                    <li>
-                      <a className={this.state.showUsers && 'is-active-parent'}>
-                        <Icon iconName="users" />
-                        Users
-                      </a>
-                      <ul>
-                        <li>
-                          <a
-                            className={this.state.showUsers && 'is-active'}
-                            onClick={async () => {
-                              await this.setState({
-                                showUsers: true,
-                                showArticles: false,
-                                showDashboard: false,
-                                createNewArticle: false,
-                              });
-                            }}
-                          >
-                            All
-                          </a>
-                        </li>
-                        <li>
-                          <a>Manage users</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <p className="menu-label">Statistics</p>
-                  <ul className="menu-list">
-                    <li>
-                      <a>
-                        <Icon iconName="chart-line" />
-                        Users
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <Icon iconName="chart-line" />
-                        Articles
-                      </a>
-                    </li>
-                  </ul>
-                </aside>
-              </div>
+            <Card className="is-min-height">
+              <div className="columns is-centered">
+                <div className="column is-8">
+                  <a
+                    className="button is-dark is-pulled-right"
+                    onClick={() => {
+                      this.setState({ isLoggingOut: true });
+                    }}
+                  >
+                    <span>Logout</span>
+                    <Icon iconName="arrow-right" />
+                  </a>
+                  <h1 className="title is-3">Hi, {Auth.user.name}</h1>
+                  <hr />
 
-              {this.state.showDashboard && <AdminDashboard />}
-              {this.state.showArticles && <AdminArticles />}
-              {this.state.showUsers && <AdminUsers />}
-              {this.state.createNewArticle && <AdminArticle />}
-            </div>
+                  <strong className="heading">Content</strong>
+                  <br />
+                  <Link className="media" to="/admin/modules">
+                    <div className="media-left">
+                      <Icon iconName="newspaper" />
+                    </div>
+                    <div className="media-content">
+                      <strong>Articles</strong>
+                      <br />
+                      <small className="has-text-grey">
+                        Manage articles content and their settings.
+                      </small>
+                    </div>
+                  </Link>
+                  <Link className="media" to="/admin/categories">
+                    <div className="media-left">
+                      <Icon iconName="tag" />
+                    </div>
+                    <div className="media-content">
+                      <strong>Categories</strong>
+                      <br />
+                      <small className="has-text-grey">
+                        Manage categories for articles available.
+                      </small>
+                    </div>
+                  </Link>
+
+                  <br />
+                  <strong className="heading">Reporting</strong>
+                  <br />
+                  <Link className="media" to="/admin/results">
+                    <div className="media-left">
+                      <Icon iconName="poll" />
+                    </div>
+                    <div className="media-content">
+                      <strong>Articles</strong>
+                      <br />
+                      <small className="has-text-grey">
+                        View articles statistics.
+                      </small>
+                    </div>
+                  </Link>
+
+                  <br />
+                  <strong className="heading">Access</strong>
+                  <br />
+                  <Link className="media" to="/admin/profile">
+                    <div className="media-left">
+                      <Icon iconName="user-edit" />
+                    </div>
+                    <div className="media-content">
+                      <strong>My Details</strong>
+                      <br />
+                      <small className="has-text-grey">
+                        Change your login details.
+                      </small>
+                    </div>
+                  </Link>
+                  <Link className="media" to="/admin/users">
+                    <div className="media-left">
+                      <Icon iconName="users" />
+                    </div>
+                    <div className="media-content">
+                      <strong>Admins</strong>
+                      <br />
+                      <small className="has-text-grey">
+                        Add or remove another admins.
+                      </small>
+                    </div>
+                  </Link>
+
+                  <br />
+                  <div className="has-text-grey has-text-centered">
+                    <Icon iconName="code-branch" />
+                    <small>
+                      You are running version{' '}
+                      <span className="has-text-weight-bold">
+                        {pkg.version}
+                      </span>{' '}
+                      of My site.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </section>
-        <Footer />
+        <Modal
+          isActive={this.state.isLoggingOut}
+          handleClose={async (status) => {
+            if (status === 1) {
+              await Auth.logout();
+              this.props.history.push('/');
+            }
+            this.setState({ isLoggingOut: false });
+          }}
+        >
+          <div className="content">
+            <h2>Log Out?</h2>
+            <p>Are you sure you want to log out of the admin panel?</p>
+          </div>
+        </Modal>
       </>
     );
   }

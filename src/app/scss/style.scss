@@ -5,6 +5,7 @@
 @import './mixins';
 @import './grid';
 @import './components/all';
+@import '~react-tippy/dist/tippy.css';
 
 html,
 body {
@@ -46,6 +47,7 @@ body {
 .container {
   &.archive,
   &.articles {
+    background-color: $white;
     max-width: 1145px;
   }
 

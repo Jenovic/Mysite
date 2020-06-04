@@ -1,6 +1,8 @@
 import * as Sequelize from 'sequelize';
-import { Table, Model, Column } from 'sequelize-typescript';
+import { Table, Model, Column, ForeignKey } from 'sequelize-typescript';
 import { Property } from '@tsed/common';
+import Module from '../models/Module';
+import Slide from '../models/Slide';
 
 @Table({
   tableName: 'uploads',
@@ -30,11 +32,27 @@ export default class Upload extends Model<Upload> implements IUpload {
   })
   public type: 'IMAGE' | 'DOCUMENT';
 
+  @Property()
+  @ForeignKey(() => Module)
+  @Column({
+    type: Sequelize.UUID,
+  })
+  public moduleUuid: Sequelize.DataTypeUUID;
+
+  @Property()
+  @ForeignKey(() => Slide)
+  @Column({
+    type: Sequelize.UUID,
+  })
+  public slideUuid: Sequelize.DataTypeUUID;
+
   /**
    * Hide specific fields publicly
    */
   toJSON() {
     const values = Object.assign({}, this.get());
+    delete values.moduleUuid;
+    delete values.slideUuid;
     delete values.deletedAt;
     return values;
   }

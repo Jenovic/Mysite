@@ -3,7 +3,7 @@ import { findIndex } from 'lodash';
 
 export default class SearchIndex<Resource> {
   items: Array<Resource>;
-  index: Fuse<Resource>;
+  // index: Fuse<Resource>;
   options;
 
   constructor(options = {}) {
@@ -15,7 +15,7 @@ export default class SearchIndex<Resource> {
    */
   public set(items: Resource[]) {
     this.items = items;
-    this.build();
+    // this.build();
   }
 
   /**
@@ -23,7 +23,7 @@ export default class SearchIndex<Resource> {
    */
   public add(item: Resource) {
     this.items.push(item);
-    this.build();
+    // this.build();
   }
 
   /**
@@ -34,20 +34,21 @@ export default class SearchIndex<Resource> {
     if (index !== -1) {
       this.items.splice(index, 1);
     }
-    this.build();
+    // this.build();
   }
 
   /**
    * Build the index
    */
-  private build() {
-    this.index = new Fuse(this.items, this.options);
-  }
+  // private build() {
+  //   this.index = new Fuse(this.items, this.options);
+  // }
 
   /**
    * Search the index
    */
   public search(query: string): Resource[] {
-    return this.index.search(query);
+    // return this.index.search(query);
+    return null;
   }
 }

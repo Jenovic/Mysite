@@ -9,7 +9,7 @@ export default class AdminArticleIndex extends React.Component {
         <div className="container">
           <h2>Articles</h2>
           <div className="meta">
-            <Search />
+            {/* <Search /> */}
             <span className="button">
               <span>Add new</span> <Icon iconName="plus" />
             </span>

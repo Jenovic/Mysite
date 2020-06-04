@@ -85,7 +85,8 @@
 
   .image-container {
     justify-content: center;
-    padding: 4em 0 0 4em;
+    padding: 0 0 0 4em;
+    z-index: 999;
 
     @media only screen and (max-width: 768px) {
       padding: 0;

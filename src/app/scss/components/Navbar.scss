@@ -24,9 +24,13 @@
     .logo-text {
       color: $black;
       font-size: 24px;
-      font-style: italic;
+      // font-style: italic;
+      font-weight: bold;
       margin: 0;
       padding: 0;
+    }
+    img {
+      max-height: 2.75rem;
     }
   }
 

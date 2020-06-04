@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
+import Auth from '../../services/Auth';
+import CategoryManager from '../../services/CategoryManager';
+import Module from '../../models/Module';
+import ModuleManager from '../../services/ModuleManager';
+import Loader from '../../components/Loader';
 import Breadcrumb from '../../components/Breadcrumb';
+import SearchForm from '../../components/SearchForm';
 import Icon from '../../components/Icon';
 import Article from '../../components/Article';
 import Footer from '../../components/Footer';
 import Tag from '../../components/Tag';
 import Title from '../../components/Title';
-import SearchForm from '../../components/SearchForm';
+import Category from '../../models/Category';
 const background = require('../../assets/article.svg');
-
-declare var location: any;
 
 interface Props {
   history: any;
@@ -23,13 +27,51 @@ const sectionStyle = {
   backgroundSize: 'contain',
 };
 
-interface State {}
+interface State {
+  isLoaded: boolean;
+  modules: Module[][];
+  categories: Category[];
+}
 
 /**
  * Articles archive
  */
+@observer
 export default class View extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+      modules: [],
+      categories: [],
+    };
+  }
+
+  async componentDidMount() {
+    if (!Auth.user) {
+      console.log('called');
+      return;
+    }
+    console.log('called 2');
+    // Load content
+    await CategoryManager.findAll();
+    console.log(CategoryManager.categories);
+    const modules = await Promise.all(
+      CategoryManager.categories.map((category) =>
+        ModuleManager.findByCategory(category, { limit: 4 }),
+      ),
+    );
+    console.log(modules);
+    this.setState({
+      modules,
+      categories: CategoryManager.categories,
+      isLoaded: true,
+    });
+    console.log('called 3');
+  }
+
   render() {
+    console.log(CategoryManager.categories);
     return (
       <>
         <Helmet title={'Sample article archive'} />
@@ -60,15 +102,18 @@ export default class View extends React.Component<Props, State> {
                 size="1"
                 hasMaxWidth={true}
               />
-              <SearchForm color="white" />
+              {/* <SearchForm color="white" /> */}
             </div>
           </div>
 
           <div className="meta-category is-centered">
             <Tag tagName="#" />
-            <Tag tagName="Analysis" />
-            <Tag tagName="Data" />
-            <Tag tagName="Research" />
+            {CategoryManager.categories.map((category, index) => {
+              <>
+                <p>{category.name}</p>
+                <Tag tagName={category.name} />;
+              </>;
+            })}
           </div>
         </section>
         <section className="is-fullheight is-primary content">
@@ -76,56 +121,48 @@ export default class View extends React.Component<Props, State> {
             <div className="cols is-centered is-multiline articles">
               <Article
                 category="article_card data"
-                tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card research"
-                tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card analysis"
-                tag="Analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card data"
-                tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card analysis"
-                tag="Analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card data"
-                tag="Data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card research"
-                tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
                 category="article_card research"
-                tag="Research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"

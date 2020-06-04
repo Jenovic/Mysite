@@ -1,32 +1,67 @@
-.breadcrumb {
-  .articles {
-    margin-top: 5em;
+// .breadcrumb {
+//   .articles {
+//     margin-top: 5em;
 
-    a,
-    a:hover {
-      color: $white;
-      font-weight: bold;
+//     a,
+//     a:hover {
+//       color: $white;
+//       font-weight: bold;
+//     }
+
+//     .is-active {
+//       a {
+//         color: $active;
+//       }
+//     }
+//   }
+
+//   .article {
+//     margin-top: 5em;
+//     a,
+//     a:hover {
+//       color: $active;
+//       font-weight: bold;
+//     }
+
+//     .is-active {
+//       a {
+//         color: $black;
+//       }
+//     }
+//   }
+// }
+
+.breadcrumb {
+  margin-bottom: 0 !important;
+  width: 100%;
+  position: absolute;
+  margin-top: 1em;
+
+  li {
+    &::before {
+      color: $grey-dark !important;
+      font-size: 0.9em;
     }
 
-    .is-active {
-      a {
-        color: $active;
-      }
+    &.is-active a {
+      color: $grey-light;
     }
   }
 
-  .article {
-    margin-top: 5em;
-    a,
-    a:hover {
-      color: $active;
-      font-weight: bold;
+  a {
+    font-size: 0.9em;
+    color: $grey;
+
+    &:hover {
+      color: $primary;
     }
 
-    .is-active {
-      a {
-        color: $black;
-      }
+    &.is-pulled-right {
+      padding-right: 0;
     }
+  }
+
+  @include touch {
+    display: none;
   }
 }

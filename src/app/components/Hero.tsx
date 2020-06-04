@@ -82,7 +82,7 @@ class Hero extends React.Component<Props> {
               </div>
             </div>
             <div className="col is-12 is-6-md image-container">
-              <img src={require('../assets/homegif.gif')} />
+              <img src={require('../assets/test-2.jpg')} />
             </div>
           </div>
         </div>

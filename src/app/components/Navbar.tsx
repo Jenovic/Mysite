@@ -31,15 +31,15 @@ class Navbar extends React.Component<Props, State> {
 
   render() {
     return (
-      <nav className="navbar is-fixed-top">
+      <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              <img src={require('../assets/telegram-logo.png')} />
+              <img src={require('../assets/test-1.png')} />
             </a>
-            <a className="navbar-item logo-text" href="/">
-              eXplore
-            </a>
+            {/* <a className="navbar-item logo-text" href="/">
+              OutData
+            </a> */}
             <a
               role="button"
               className="navbar-burger burger"
@@ -79,7 +79,7 @@ class Navbar extends React.Component<Props, State> {
                   <a className="button">Subscribe</a>
                 </div>
               </div>
-              {Auth.user && (
+              {/* {Auth.user && (
                 <>
                   <div className="navbar-item has-dropdown is-hoverable">
                     <div className="navbar-link">{Auth.user.name}</div>
@@ -95,11 +95,11 @@ class Navbar extends React.Component<Props, State> {
                     </div>
                   </div>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>
-        <Modal
+        {/* <Modal
           isActive={this.state.isLoggingOut}
           handleClose={async (status) => {
             if (status === 1) {
@@ -113,7 +113,7 @@ class Navbar extends React.Component<Props, State> {
             <h2>Log Out?</h2>
             <p>Are you sure you want to log out?</p>
           </div>
-        </Modal>
+        </Modal> */}
       </nav>
     );
   }

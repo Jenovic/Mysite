@@ -49,6 +49,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0 20px 10px;
+  overflow: hidden;
 
   @include bp(md) {
     padding: 0 10px 30px;
