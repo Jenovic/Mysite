@@ -10,26 +10,30 @@
     position: relative;
     .tag {
       position: absolute;
-      top: 10%;
       right: 0;
+      top: 10%;
     }
   }
 
   .content {
     background-color: $white;
+    height: 145px;
     padding: 10px 15px;
-    height: 100%;
+    position: relative;
 
     h1 {
-      color: $black;
+      color: darken($title-blue, 5%);
       font-size: 1em;
+      height: 85px;
       line-height: 1.5;
       margin-bottom: 1em;
     }
 
     .author-meta {
+      display: flex;
+      justify-content: space-between;
       span {
-        color: $black;
+        color: darken($title-blue, 5%);
       }
     }
   }
@@ -66,10 +70,13 @@
   }
 
   &:hover {
-    // transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
+    // transition: all 0.2s ease-in-out;
 
-    .content {
+    .content,
+    .thumbnail {
+      background-color: lighten($title-blue, 80%);
+
       h1 {
         text-decoration: underline;
       }

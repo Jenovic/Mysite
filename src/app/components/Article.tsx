@@ -32,9 +32,8 @@ class Article extends React.Component<Props> {
           <div className="content">
             <h1>{this.props.title}</h1>
             <div className="author-meta">
-              <span>
-                {this.props.date} | {this.props.author}
-              </span>
+              <span>{this.props.date}</span>
+              <span>{this.props.author}</span>
             </div>
           </div>
         </Link>
