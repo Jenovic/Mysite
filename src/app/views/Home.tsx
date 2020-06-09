@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Article from '../components/Article';
-import FeaturedArticle from '../components/FeaturedArticle';
 import Tag from '../components/Tag';
 import Title from '../components/Title';
 import SearchForm from '../components/SearchForm';
@@ -53,7 +51,7 @@ export default class View extends React.Component<Props, State> {
             <div className="level">
               <Title title="Latest articles and news" size="1" color="blue" />
               <SearchForm
-                placeholder="Search modules"
+                placeholder="Search articles"
                 handleSubmit={({ search }, setSubmitting) => {
                   setSubmitting(false);
                   if (search) {
@@ -75,50 +73,15 @@ export default class View extends React.Component<Props, State> {
                   })}
                 </div>
                 <div className="cols is-centered is-multiline articles">
-                  {/* {CategoryManager.categories.map((category, index) => {
-                    const modules = this.state.modules[index];
-
-                    if (modules.length === 0) {
-                      return null;
-                    }
-
-                    return (
-                      <>
-                        {modules.slice(0, 4).map((module, index) => (
-                          <Article
-                            key={module.uuid}
-                            category={`article_card ${category.name} ${index}`}
-                            tag={category.name}
-                            title={module.title}
-                            author="Sanil Purryag"
-                            date="18 aug 2019"
-                          />
-                        ))}
-                      </>
-                    );
-                  })} */}
                   {this.state.modules.map((module, index) => {
-                    // if (index === 0) {
-                    //   return (
-                    //     <FeaturedArticle
-                    //       key={module.uuid}
-                    //       title={module.title}
-                    //       author="Sanil Purryag"
-                    //       date="18 aug 2019"
-                    //     />
-                    //   );
-                    // }
-
-                    // if (index > 0) {
                     return (
                       <Article
                         key={module.uuid}
                         title={module.title}
                         author="Sanil Purryag"
-                        date="18 aug 2019"
+                        date="1d"
                       />
                     );
-                    // }
                   })}
                 </div>
               </>

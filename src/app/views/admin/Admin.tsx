@@ -134,7 +134,7 @@ export default class View extends React.Component<Props, State> {
                       <span className="has-text-weight-bold">
                         {pkg.version}
                       </span>{' '}
-                      of My site.
+                      of OutData.
                     </small>
                   </div>
                 </div>

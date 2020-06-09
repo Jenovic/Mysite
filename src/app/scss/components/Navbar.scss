@@ -3,8 +3,8 @@
   z-index: 1000 !important;
 
   a {
-    color: $off-black;
-    font-size: 14px;
+    color: $title-blue;
+    font-size: 16px;
     font-weight: bold;
   }
 
@@ -50,7 +50,7 @@
     }
     a.button {
       border: 1px solid $circle-blue;
-      border-radius: 21px;
+      border-radius: 10px;
       color: $circle-blue;
       padding: 1.5em;
 

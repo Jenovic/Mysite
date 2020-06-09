@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Icon from './Icon';
 
 interface Props {
   history: any;
@@ -32,7 +33,10 @@ class Article extends React.Component<Props> {
           <div className="content">
             <h1>{this.props.title}</h1>
             <div className="author-meta">
-              <span>{this.props.date}</span>
+              <span>
+                <Icon iconName="clock" />
+                {this.props.date}
+              </span>
               <span>{this.props.author}</span>
             </div>
           </div>

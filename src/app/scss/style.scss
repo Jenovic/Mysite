@@ -1,3 +1,4 @@
+@import 'fonts';
 @import '~bulma';
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '../fonts/Raleway-Regular.ttf';
@@ -10,6 +11,7 @@
 html,
 body {
   background-color: $light-gray;
+  font-family: $primary-font;
 }
 
 .has-width {
@@ -52,6 +54,18 @@ body {
 
   &.archive {
     margin-top: 3em;
+
+    .level {
+      form {
+        margin-bottom: 1.5rem;
+
+        .control {
+          button {
+            border-color: #dbdbdb;
+          }
+        }
+      }
+    }
   }
 
   &.article,

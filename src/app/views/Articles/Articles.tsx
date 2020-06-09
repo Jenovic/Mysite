@@ -120,49 +120,49 @@ export default class View extends React.Component<Props, State> {
           <div className="container archive">
             <div className="cols is-centered is-multiline articles">
               <Article
-                category="article_card data"
+                category="data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card research"
+                category="research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card analysis"
+                category="analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card data"
+                category="data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card analysis"
+                category="analysis"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card data"
+                category="data"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card research"
+                category="research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"
               ></Article>
               <Article
-                category="article_card research"
+                category="research"
                 title="The title"
                 author="Sanil Purryag"
                 date="18 Aug 2019"

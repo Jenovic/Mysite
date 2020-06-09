@@ -70,9 +70,10 @@
 
       .hero-anime {
         color: $white;
+        font-family: $primary-font;
         font-size: 80px;
-        line-height: 1;
         height: 250px;
+        line-height: 1;
         margin-bottom: 100px;
 
         @media only screen and (max-width: 768px) {
@@ -251,13 +252,14 @@
       a {
         color: $started;
         display: flex;
+        font-family: $primary-font;
         font-style: italic;
         font-weight: 500;
         margin-left: 0.5em;
         margin-top: 5px;
 
         .link-text {
-          line-height: 1.7;
+          line-height: 2.1;
         }
       }
 
