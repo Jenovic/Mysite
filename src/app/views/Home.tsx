@@ -12,6 +12,7 @@ import Module from '../models/Module';
 import ModuleManager from '../services/ModuleManager';
 import Loader from '../components/Loader';
 import Icon from '../components/Icon';
+import CallToAction from '../components/CallToAction';
 
 interface Props {
   history: any;
@@ -88,6 +89,7 @@ export default class View extends React.Component<Props, State> {
             )}
           </div>
         </section>
+        <CallToAction />
         <Footer />
       </>
     );

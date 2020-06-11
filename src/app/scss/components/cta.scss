@@ -1,0 +1,11 @@
+.cta {
+  background-color: $white;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 700;
+
+  &-quote {
+    align-self: center;
+    color: $title-blue;
+  }
+}
