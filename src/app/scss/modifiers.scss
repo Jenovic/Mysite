@@ -1,0 +1,84 @@
+html,
+body {
+  background-color: $light-gray;
+  font-family: $primary-font;
+}
+
+.has-width {
+  max-width: 500px;
+}
+
+.title.is-2 {
+  @media only screen and (max-width: 768px) {
+    font-size: 1.1em;
+  }
+}
+
+.title.is-3 {
+  @media only screen and (max-width: 768px) {
+    font-size: 1.1em;
+  }
+}
+
+.title.has-text-blue {
+  color: $title-blue;
+}
+
+.top-content {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+}
+
+.container {
+  &.archive,
+  &.articles {
+    max-width: 1145px;
+  }
+
+  &.archive {
+    margin-top: 3em;
+
+    .level {
+      form {
+        margin-bottom: 1.5rem;
+
+        .control {
+          button {
+            border-color: #dbdbdb;
+          }
+        }
+      }
+    }
+  }
+
+  &.article,
+  &.single {
+    max-width: 800px;
+  }
+}
+
+.article-view {
+  &-content {
+    font-family: $primary-font;
+    font-size: 20px;
+  }
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}

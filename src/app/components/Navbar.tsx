@@ -37,9 +37,6 @@ class Navbar extends React.Component<Props, State> {
             <a className="navbar-item" href="/">
               <img src={require('../assets/test-1.png')} />
             </a>
-            {/* <a className="navbar-item logo-text" href="/">
-              OutData
-            </a> */}
             <a
               role="button"
               className="navbar-burger burger"
@@ -79,41 +76,9 @@ class Navbar extends React.Component<Props, State> {
                   <a className="button">Subscribe</a>
                 </div>
               </div>
-              {/* {Auth.user && (
-                <>
-                  <div className="navbar-item has-dropdown is-hoverable">
-                    <div className="navbar-link">{Auth.user.name}</div>
-                    <div className="navbar-dropdown is-right">
-                      <a
-                        className="navbar-item has-text-danger"
-                        onClick={() => {
-                          this.setState({ isLoggingOut: true });
-                        }}
-                      >
-                        Logout
-                      </a>
-                    </div>
-                  </div>
-                </>
-              )} */}
             </div>
           </div>
         </div>
-        {/* <Modal
-          isActive={this.state.isLoggingOut}
-          handleClose={async (status) => {
-            if (status === 1) {
-              await Auth.logout();
-              this.props.history.push('/');
-            }
-            this.setState({ isLoggingOut: false });
-          }}
-        >
-          <div className="content">
-            <h2>Log Out?</h2>
-            <p>Are you sure you want to log out?</p>
-          </div>
-        </Modal> */}
       </nav>
     );
   }

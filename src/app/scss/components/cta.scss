@@ -1,11 +1,41 @@
 .cta {
-  background-color: $white;
   font-size: 40px;
-  font-style: italic;
   font-weight: 700;
+  margin-bottom: 2em;
 
-  &-quote {
-    align-self: center;
+  img {
+    width: 85%;
+  }
+
+  &-content {
+    align-items: center;
     color: $title-blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 45px;
+
+    h2 {
+      text-align: center;
+    }
+
+    &__button {
+      button {
+        background-color: $white !important;
+        border: 1px solid $circle-blue !important;
+        border-radius: 10px;
+        color: $circle-blue !important;
+        padding: 1.2em;
+
+        &:hover {
+          background-color: $blue-hover !important;
+          color: $white !important;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
 }
