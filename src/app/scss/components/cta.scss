@@ -1,4 +1,5 @@
 .cta {
+  font-family: $primary-font;
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 2em;
@@ -25,6 +26,7 @@
         border: 1px solid $circle-blue !important;
         border-radius: 10px;
         color: $circle-blue !important;
+        font-family: $primary-font;
         padding: 1.2em;
 
         &:hover {
