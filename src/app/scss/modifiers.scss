@@ -8,15 +8,43 @@ body {
   max-width: 500px;
 }
 
+.title.is-1 {
+  font-size: 2.25em;
+
+  @include bp(md) {
+    font-size: 3em;
+  }
+}
+
 .title.is-2 {
-  @media only screen and (max-width: 768px) {
-    font-size: 1.1em;
+  font-size: 2em;
+
+  @include bp(md) {
+    font-size: 2.5em;
   }
 }
 
 .title.is-3 {
-  @media only screen and (max-width: 768px) {
-    font-size: 1.1em;
+  font-size: 1.5em;
+
+  @include bp(md) {
+    font-size: 2em;
+  }
+}
+
+.title.is-4 {
+  font-size: 1em;
+
+  @include bp(md) {
+    font-size: 1.25em;
+  }
+}
+
+.title.is-5 {
+  font-size: 0.85em;
+
+  @include bp(md) {
+    font-size: 1em;
   }
 }
 
@@ -25,12 +53,14 @@ body {
 }
 
 .top-content {
+  padding: 4em 0;
+
   .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    @media only screen and (min-width: 768px) {
+    @include bp(md) {
       flex-direction: row;
     }
   }
@@ -43,7 +73,7 @@ body {
   }
 
   &.archive {
-    margin-top: 3em;
+    margin-top: 50px;
 
     .level {
       form {

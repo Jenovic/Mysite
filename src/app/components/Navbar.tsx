@@ -31,7 +31,7 @@ class Navbar extends React.Component<Props, State> {
 
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar is-fixed-top">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
@@ -61,13 +61,13 @@ class Navbar extends React.Component<Props, State> {
                 Home
               </a>
               <a className="navbar-item" href="#">
-                About
+                About Us
               </a>
               <a className="navbar-item" href="/articles">
                 Articles
               </a>
               <a className="navbar-item" href="#">
-                Contact us
+                Contact Us
               </a>
             </div>
             <div className="navbar-end">

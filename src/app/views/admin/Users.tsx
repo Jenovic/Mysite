@@ -57,96 +57,98 @@ export default class View extends React.Component<{}, State> {
             },
           ]}
         />
-        <Section>
-          <div className="columns">
-            <div className="column is-8">
-              <Card className="is-fixed-height">
-                <h1 className="title is-3">Admins</h1>
-                {AdminManager.users.length === 0 && (
-                  <Notification>No admins found</Notification>
-                )}
-                <ResourceList
-                  items={AdminManager.users}
-                  renderContent={(admin: Admin) => (
-                    <div>
-                      <strong>{admin.name}</strong>
-                      <br />
-                      <small className="has-text-grey">{admin.email}</small>
-                    </div>
+        <section className="admin section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-8">
+                <Card className="is-fixed-height">
+                  <h1 className="title is-3">Admins</h1>
+                  {AdminManager.users.length === 0 && (
+                    <Notification>No admins found</Notification>
                   )}
-                  renderControls={(admin: Admin) => {
-                    if (AdminAuth.user.uuid === admin.uuid) {
-                      return null;
-                    }
-                    return (
-                      <div className="buttons">
-                        <button
-                          className="button"
-                          onClick={() => {
-                            this.setState({
-                              admin,
-                              errors: [],
-                            });
-                          }}
-                        >
-                          <Icon iconName="times" />
-                          <span>Remove</span>
-                        </button>
+                  <ResourceList
+                    items={AdminManager.users}
+                    renderContent={(admin: Admin) => (
+                      <div>
+                        <strong>{admin.name}</strong>
+                        <br />
+                        <small className="has-text-grey">{admin.email}</small>
                       </div>
-                    );
-                  }}
-                />
-              </Card>
-            </div>
-            <div className="column is-4">
-              {this.state.didCreate ? (
-                <Notification className="is-primary">
-                  Admin created.{' '}
-                  <a
-                    onClick={() => {
-                      this.setState({ didCreate: false });
+                    )}
+                    renderControls={(admin: Admin) => {
+                      if (AdminAuth.user.uuid === admin.uuid) {
+                        return null;
+                      }
+                      return (
+                        <div className="buttons">
+                          <button
+                            className="button"
+                            onClick={() => {
+                              this.setState({
+                                admin,
+                                errors: [],
+                              });
+                            }}
+                          >
+                            <Icon iconName="times" />
+                            <span>Remove</span>
+                          </button>
+                        </div>
+                      );
                     }}
-                  >
-                    Create another?
-                  </a>
-                </Notification>
-              ) : (
-                <>
-                  <Card className="is-fixed-height">
-                    <h2 className="title is-4">New Admin</h2>
-                    <AdminForm
-                      buttonText="Create"
-                      handleSubmit={async (
-                        { name, email, password },
-                        setSubmitting,
-                      ) => {
-                        try {
-                          await AdminManager.create({
-                            name,
-                            email,
-                            password,
-                          });
-                          setSubmitting(false);
-                          this.setState({
-                            errors: [],
-                            didCreate: true,
-                          });
-                        } catch (e) {
-                          setSubmitting(false);
-                          if (e.response) {
-                            this.setState({ errors: e.response.data });
-                          }
-                        }
+                  />
+                </Card>
+              </div>
+              <div className="column is-4">
+                {this.state.didCreate ? (
+                  <Notification className="is-primary">
+                    Admin created.{' '}
+                    <a
+                      onClick={() => {
+                        this.setState({ didCreate: false });
                       }}
-                    />
-                    <br />
-                    <Errors errors={this.state.errors} />
-                  </Card>
-                </>
-              )}
+                    >
+                      Create another?
+                    </a>
+                  </Notification>
+                ) : (
+                  <>
+                    <Card className="is-fixed-height">
+                      <h2 className="title is-4">New Admin</h2>
+                      <AdminForm
+                        buttonText="Create"
+                        handleSubmit={async (
+                          { name, email, password },
+                          setSubmitting,
+                        ) => {
+                          try {
+                            await AdminManager.create({
+                              name,
+                              email,
+                              password,
+                            });
+                            setSubmitting(false);
+                            this.setState({
+                              errors: [],
+                              didCreate: true,
+                            });
+                          } catch (e) {
+                            setSubmitting(false);
+                            if (e.response) {
+                              this.setState({ errors: e.response.data });
+                            }
+                          }
+                        }}
+                      />
+                      <br />
+                      <Errors errors={this.state.errors} />
+                    </Card>
+                  </>
+                )}
+              </div>
             </div>
           </div>
-        </Section>
+        </section>
         <Modal
           isActive={this.state.admin !== null}
           handleClose={async (status) => {

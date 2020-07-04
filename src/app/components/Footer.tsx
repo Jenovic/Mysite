@@ -18,13 +18,13 @@ export default class Footer extends React.Component {
             <a className="navbar-item" href="#">
               Contact us
             </a>
-            <span className="flex align-center">
-              <p>@ OutData 2020 |</p>
-              <a className="navbar-item legal" href="#">
+            <span className="flex align-center legal">
+              <p>@ OutData 2020 </p>
+              <a className="navbar-item" href="#">
                 Terms & Conditions
               </a>
               <span>|</span>
-              <a className="navbar-item legal" href="#">
+              <a className="navbar-item" href="#">
                 Privacy Policy
               </a>
             </span>

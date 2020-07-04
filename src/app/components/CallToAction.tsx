@@ -12,7 +12,10 @@ export default class CallToAction extends React.Component {
               <img src={require('../assets/cta-anime.gif')} />
             </div>
             <div className="col is-12 is-6-md cta-content">
-              <Title title="The best way to predict the future is to to create it." />
+              <Title
+                title="The best way to predict the future is to to create it."
+                size="5"
+              />
               <div className="cta-content__button">
                 <button
                   type="submit"

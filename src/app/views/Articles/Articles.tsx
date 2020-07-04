@@ -14,6 +14,8 @@ import Footer from '../../components/Footer';
 import Tag from '../../components/Tag';
 import Title from '../../components/Title';
 import Category from '../../models/Category';
+import { Link } from 'react-router-dom';
+import ModuleItem from '../../components/ModuleItem';
 const background = require('../../assets/article.svg');
 
 interface Props {
@@ -95,79 +97,82 @@ export default class View extends React.Component<Props, State> {
           />
 
           <div className="top-content">
-            <div className="container" style={sectionStyle}>
+            <div className="container articles" style={sectionStyle}>
               <Title
                 title="Find here what you're looking for"
                 color="white"
                 size="1"
                 hasMaxWidth={true}
               />
-              {/* <SearchForm color="white" /> */}
+              <SearchForm
+                placeholder="Search articles"
+                handleSubmit={({ search }, setSubmitting) => {
+                  setSubmitting(false);
+                  if (search) {
+                    this.props.history.push(`/modules?search=${search}`);
+                  }
+                }}
+              />
             </div>
           </div>
 
           <div className="meta-category is-centered">
-            <Tag tagName="#" />
-            {CategoryManager.categories.map((category, index) => {
-              <>
-                <p>{category.name}</p>
-                <Tag tagName={category.name} />;
-              </>;
+            <Icon iconName="tag" />
+            {CategoryManager.categories.map((category) => {
+              const categoryUrl = `/modules?category=${category.uuid}`;
+              return <Tag tagName={category.name} link={categoryUrl} />;
             })}
           </div>
         </section>
         <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="cols is-centered is-multiline articles">
-              <Article
-                category="data"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="research"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="analysis"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="data"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="analysis"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="data"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="research"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-              <Article
-                category="research"
-                title="The title"
-                author="Sanil Purryag"
-                date="18 Aug 2019"
-              ></Article>
-            </div>
+            {!this.state.isLoaded ? (
+              <Loader />
+            ) : (
+              <>
+                {/* Category Preview */}
+                {CategoryManager.categories.map((category, index) => {
+                  const categoryUrl = `/modules?category=${category.uuid}`;
+                  const modules = this.state.modules[index];
+                  if (modules.length === 0) {
+                    return null;
+                  }
+
+                  return (
+                    <>
+                      <div className="level">
+                        <div className="level-left">
+                          <div className="level-item">
+                            <Link to={categoryUrl}>
+                              <h2 className="title is-4">{category.name}</h2>
+                            </Link>
+                          </div>
+                        </div>
+                        <div className="level-right">
+                          <div className="level-item">
+                            <Link to={categoryUrl} className="button is-text">
+                              <span>View all</span>
+                              <Icon iconName="arrow-right" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="columns is-multiline is-mobile">
+                        {modules.slice(0, 4).map((module) => (
+                          <Article
+                            key={module.uuid}
+                            title={module.title}
+                            author="Sanil Purryag"
+                            date="1d"
+                          />
+                        ))}
+                      </div>
+                      <br />
+                    </>
+                  );
+                })}
+              </>
+            )}
           </div>
         </section>
         <Footer />

@@ -485,148 +485,153 @@ export default class View extends React.Component<Props, State> {
             },
           ]}
         />
-        <Section>
-          <Card>{this.renderModuleMeta()}</Card>
-          <br />
-          <div className="columns">
-            <div className="column is-4">
-              <Card>
-                {/* Thumbnail */}
-                <div className="level is-mobile">
-                  <a
-                    className="level-left"
-                    onClick={() => {
-                      this.setState({
-                        isThumbnailActive: !this.state.isThumbnailActive,
-                      });
-                    }}
-                  >
-                    <div className="level-item">
-                      <Icon
-                        iconName={
-                          this.state.isThumbnailActive
-                            ? 'arrow-down'
-                            : 'arrow-right'
-                        }
-                      />
-                    </div>
-                    <div className="level-item">
-                      <h2 className="title is-4">Thumbnail</h2>
-                    </div>
-                  </a>
-                  {this.state.module.isEditable() && (
-                    <div className="level-right">
+        <section className="admin section">
+          <div className="container">
+            <Card>{this.renderModuleMeta()}</Card>
+            <br />
+            <div className="columns">
+              <div className="column is-4">
+                <Card>
+                  {/* Thumbnail */}
+                  <div className="level is-mobile">
+                    <a
+                      className="level-left"
+                      onClick={() => {
+                        this.setState({
+                          isThumbnailActive: !this.state.isThumbnailActive,
+                        });
+                      }}
+                    >
                       <div className="level-item">
-                        <button
-                          className="button is-dark"
-                          onClick={() => {
-                            this.setState({
-                              didSave: false,
-                              isEditingThumbnail: true,
-                              errors: [],
-                            });
-                          }}
-                        >
-                          <span>Upload</span>
-                          <Icon iconName="image" />
-                        </button>
+                        <Icon
+                          iconName={
+                            this.state.isThumbnailActive
+                              ? 'arrow-down'
+                              : 'arrow-right'
+                          }
+                        />
                       </div>
-                    </div>
-                  )}
-                </div>
-                {!this.state.isThumbnailActive ? null : !!this.state.module
-                    .thumbnail ? (
-                  <img src={this.state.module.thumbnail} />
-                ) : (
-                  <Notification>No thumbnail</Notification>
-                )}
-
-                <hr />
-
-                {/* Slides */}
-                <div className="level is-mobile">
-                  <a
-                    className="level-left"
-                    onClick={() => {
-                      this.setState({
-                        isSlidesActive: !this.state.isSlidesActive,
-                      });
-                    }}
-                  >
-                    <div className="level-item">
-                      <Icon
-                        iconName={
-                          this.state.isSlidesActive
-                            ? 'arrow-down'
-                            : 'arrow-right'
-                        }
-                      />
-                    </div>
-                    <div className="level-item">
-                      <h2 className="title is-4">Slides</h2>
-                    </div>
-                    <div className="level-item has-text-grey">
-                      ({this.state.module.slides.length})
-                    </div>
-                  </a>
-                  {this.state.module.isEditable() && (
-                    <div className="level-right">
                       <div className="level-item">
-                        <button
-                          className="button is-dark"
-                          onClick={() => {
-                            this.setState({
-                              didSave: false,
-                              isAddingSlide: true,
-                              errors: [],
-                            });
-                          }}
-                        >
-                          <span>Add New</span>
-                          <Icon iconName="plus" />
-                        </button>
+                        <h2 className="title is-4">Thumbnail</h2>
                       </div>
-                    </div>
+                    </a>
+                    {this.state.module.isEditable() && (
+                      <div className="level-right">
+                        <div className="level-item">
+                          <button
+                            className="button is-dark"
+                            onClick={() => {
+                              this.setState({
+                                didSave: false,
+                                isEditingThumbnail: true,
+                                errors: [],
+                              });
+                            }}
+                          >
+                            <span>Upload</span>
+                            <Icon iconName="image" />
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {!this.state.isThumbnailActive ? null : !!this.state.module
+                      .thumbnail ? (
+                    <img src={this.state.module.thumbnail} />
+                  ) : (
+                    <Notification>No thumbnail</Notification>
                   )}
-                </div>
-                {this.renderSlides(this.state.module.slides, this.state.slide)}
-              </Card>
-            </div>
-            <div className="column is-8">
-              {!this.state.isAddingSlide &&
-                !this.state.isEditing &&
-                !this.state.isAddingCategory &&
-                !this.state.isEditingThumbnail && (
-                  <Errors errors={this.state.errors} />
+
+                  <hr />
+
+                  {/* Slides */}
+                  <div className="level is-mobile">
+                    <a
+                      className="level-left"
+                      onClick={() => {
+                        this.setState({
+                          isSlidesActive: !this.state.isSlidesActive,
+                        });
+                      }}
+                    >
+                      <div className="level-item">
+                        <Icon
+                          iconName={
+                            this.state.isSlidesActive
+                              ? 'arrow-down'
+                              : 'arrow-right'
+                          }
+                        />
+                      </div>
+                      <div className="level-item">
+                        <h2 className="title is-4">Slides</h2>
+                      </div>
+                      <div className="level-item has-text-grey">
+                        ({this.state.module.slides.length})
+                      </div>
+                    </a>
+                    {this.state.module.isEditable() && (
+                      <div className="level-right">
+                        <div className="level-item">
+                          <button
+                            className="button is-dark"
+                            onClick={() => {
+                              this.setState({
+                                didSave: false,
+                                isAddingSlide: true,
+                                errors: [],
+                              });
+                            }}
+                          >
+                            <span>Add New</span>
+                            <Icon iconName="plus" />
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {this.renderSlides(
+                    this.state.module.slides,
+                    this.state.slide,
+                  )}
+                </Card>
+              </div>
+              <div className="column is-8">
+                {!this.state.isAddingSlide &&
+                  !this.state.isEditing &&
+                  !this.state.isAddingCategory &&
+                  !this.state.isEditingThumbnail && (
+                    <Errors errors={this.state.errors} />
+                  )}
+                {this.state.didSave && (
+                  <Notification className="is-primary">
+                    Your changes were saved successfully
+                    <a
+                      onClick={() => {
+                        this.setState({ didSave: false });
+                      }}
+                      className="delete"
+                    />
+                  </Notification>
                 )}
-              {this.state.didSave && (
-                <Notification className="is-primary">
-                  Your changes were saved successfully
-                  <a
-                    onClick={() => {
-                      this.setState({ didSave: false });
-                    }}
-                    className="delete"
-                  />
-                </Notification>
-              )}
-              <SlideControl
-                isActive={this.state.module.isEditable()}
-                module={this.state.module}
-                slide={this.state.slide}
-                handleUpdate={(slide, module) => {
-                  this.setState({ slide, module, errors: [], didSave: true });
-                }}
-                handleDelete={() => {
-                  this.setState({ slide: null, didSave: false, errors: [] });
-                }}
-                handleError={(errors) => {
-                  this.setState({ errors, didSave: false });
-                }}
-              />
+                <SlideControl
+                  isActive={this.state.module.isEditable()}
+                  module={this.state.module}
+                  slide={this.state.slide}
+                  handleUpdate={(slide, module) => {
+                    this.setState({ slide, module, errors: [], didSave: true });
+                  }}
+                  handleDelete={() => {
+                    this.setState({ slide: null, didSave: false, errors: [] });
+                  }}
+                  handleError={(errors) => {
+                    this.setState({ errors, didSave: false });
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </Section>
+        </section>
 
         {/* Edit Module */}
         <Modal

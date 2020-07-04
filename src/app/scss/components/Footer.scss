@@ -16,17 +16,38 @@
     }
 
     span {
-      p {
-        color: $metal-grey;
-      }
+      &.legal {
+        display: block;
 
-      .navbar-item {
-        color: $dark-grey;
-        font-weight: 700;
+        p {
+          color: $metal-grey;
+        }
 
-        &:hover {
-          background-color: transparent !important;
-          text-decoration: underline;
+        @include bp(md) {
+          display: flex;
+        }
+
+        .navbar-item {
+          color: $dark-grey;
+          font-weight: 700;
+          padding: 0;
+
+          &:hover {
+            background-color: transparent !important;
+            text-decoration: underline;
+          }
+
+          @include bp(md) {
+            padding: 0.5rem 0.75rem;
+          }
+        }
+
+        span {
+          display: none;
+
+          @include bp(md) {
+            display: block;
+          }
         }
       }
     }

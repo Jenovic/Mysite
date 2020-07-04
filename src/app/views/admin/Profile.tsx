@@ -47,45 +47,47 @@ export default class View extends React.Component<{}, State> {
             },
           ]}
         />
-        <Section>
-          <Card className="is-min-height">
-            <div className="columns is-centered">
-              <div className="column is-8">
-                <Errors errors={this.state.errors} />
-                {this.state.didSucceed && (
-                  <Notification className="is-primary">
-                    <span>Your details have been updated.</span>
-                  </Notification>
-                )}
-                <h1 className="title is-3">My Details</h1>
-                <AdminForm
-                  admin={AdminAuth.user}
-                  handleSubmit={async (
-                    { name, email, password },
-                    setSubmitting,
-                  ) => {
-                    this.setState({ errors: [], didSucceed: false });
-                    try {
-                      const admin = await AdminManager.update('me', {
-                        name,
-                        email,
-                        password,
-                      });
-                      AdminAuth.setUser(admin);
-                      this.setState({ didSucceed: true });
-                      setSubmitting(false);
-                    } catch (e) {
-                      setSubmitting(false);
-                      if (e.response) {
-                        this.setState({ errors: e.response.data });
+        <section className="admin section">
+          <div className="container">
+            <Card className="is-min-height">
+              <div className="columns is-centered">
+                <div className="column is-8">
+                  <Errors errors={this.state.errors} />
+                  {this.state.didSucceed && (
+                    <Notification className="is-primary">
+                      <span>Your details have been updated.</span>
+                    </Notification>
+                  )}
+                  <h1 className="title is-3">My Details</h1>
+                  <AdminForm
+                    admin={AdminAuth.user}
+                    handleSubmit={async (
+                      { name, email, password },
+                      setSubmitting,
+                    ) => {
+                      this.setState({ errors: [], didSucceed: false });
+                      try {
+                        const admin = await AdminManager.update('me', {
+                          name,
+                          email,
+                          password,
+                        });
+                        AdminAuth.setUser(admin);
+                        this.setState({ didSucceed: true });
+                        setSubmitting(false);
+                      } catch (e) {
+                        setSubmitting(false);
+                        if (e.response) {
+                          this.setState({ errors: e.response.data });
+                        }
                       }
-                    }
-                  }}
-                />
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          </Card>
-        </Section>
+            </Card>
+          </div>
+        </section>
       </>
     );
   }

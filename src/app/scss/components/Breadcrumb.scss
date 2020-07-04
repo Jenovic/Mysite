@@ -1,41 +1,9 @@
-// .breadcrumb {
-//   .articles {
-//     margin-top: 5em;
-
-//     a,
-//     a:hover {
-//       color: $white;
-//       font-weight: bold;
-//     }
-
-//     .is-active {
-//       a {
-//         color: $active;
-//       }
-//     }
-//   }
-
-//   .article {
-//     margin-top: 5em;
-//     a,
-//     a:hover {
-//       color: $active;
-//       font-weight: bold;
-//     }
-
-//     .is-active {
-//       a {
-//         color: $black;
-//       }
-//     }
-//   }
-// }
-
 .breadcrumb {
   margin-bottom: 0 !important;
   width: 100%;
   position: absolute;
   margin-top: 1em;
+  z-index: 20;
 
   li {
     &::before {

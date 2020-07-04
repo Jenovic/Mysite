@@ -72,136 +72,138 @@ export default class View extends React.Component<{}, State> {
             },
           ]}
         />
-        <Section>
-          <div className="columns">
-            <div className="column is-8">
-              <Card className="is-fixed-height">
-                <h1 className="title is-3">Categories</h1>
-                {!this.state.isLoaded && <Loader />}
-                {this.state.isLoaded &&
-                CategoryManager.categories.length === 0 ? (
-                  <Notification>No categories found</Notification>
+        <section className="admin section">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-8">
+                <Card className="is-fixed-height">
+                  <h1 className="title is-3">Categories</h1>
+                  {!this.state.isLoaded && <Loader />}
+                  {this.state.isLoaded &&
+                  CategoryManager.categories.length === 0 ? (
+                    <Notification>No categories found</Notification>
+                  ) : (
+                    this.state.isLoaded && (
+                      <>
+                        <ResourceList
+                          items={CategoryManager.categories.slice(
+                            0,
+                            this.CATEGORIES_PER_PAGE,
+                          )}
+                          renderContent={(category: Category) => (
+                            <div>
+                              <strong className="title is-5">
+                                {category.name}
+                              </strong>
+                              <br />
+                              <small className="has-text-grey">
+                                Created {category.createdAt.fromNow()}
+                              </small>
+                            </div>
+                          )}
+                          renderControls={(category: Category) => (
+                            <div className="buttons">
+                              <button
+                                className="button"
+                                onClick={() => {
+                                  this.setState({
+                                    category,
+                                    isEditing: true,
+                                    errors: [],
+                                  });
+                                }}
+                              >
+                                <Icon iconName="pen" />
+                                <span>Edit</span>
+                              </button>
+                              <button
+                                className="button"
+                                onClick={() => {
+                                  this.setState({
+                                    category,
+                                    isRemoving: true,
+                                    errors: [],
+                                  });
+                                }}
+                              >
+                                <Icon iconName="times" />
+                                <span>Remove</span>
+                              </button>
+                            </div>
+                          )}
+                        />
+                        <br />
+                        <Pagination
+                          page={this.state.page}
+                          isLoading={!this.state.isLoaded}
+                          hasNextPage={
+                            CategoryManager.categories.length >
+                            this.CATEGORIES_PER_PAGE
+                          }
+                          handlePaginate={async (page) => {
+                            this.setState({ isLoaded: false });
+                            await CategoryManager.findAll({
+                              page,
+                              limit: this.CATEGORIES_PER_PAGE,
+                            });
+                            this.setState({ page, isLoaded: true });
+                          }}
+                        />
+                      </>
+                    )
+                  )}
+                </Card>
+              </div>
+              <div className="column is-4">
+                {this.state.didCreate ? (
+                  <Notification className="is-primary">
+                    Category created.{' '}
+                    <a
+                      onClick={() => {
+                        this.setState({ didCreate: false });
+                      }}
+                    >
+                      Create another?
+                    </a>
+                  </Notification>
                 ) : (
-                  this.state.isLoaded && (
-                    <>
-                      <ResourceList
-                        items={CategoryManager.categories.slice(
-                          0,
-                          this.CATEGORIES_PER_PAGE,
-                        )}
-                        renderContent={(category: Category) => (
-                          <div>
-                            <strong className="title is-5">
-                              {category.name}
-                            </strong>
-                            <br />
-                            <small className="has-text-grey">
-                              Created {category.createdAt.fromNow()}
-                            </small>
-                          </div>
-                        )}
-                        renderControls={(category: Category) => (
-                          <div className="buttons">
-                            <button
-                              className="button"
-                              onClick={() => {
-                                this.setState({
-                                  category,
-                                  isEditing: true,
-                                  errors: [],
-                                });
-                              }}
-                            >
-                              <Icon iconName="pen" />
-                              <span>Edit</span>
-                            </button>
-                            <button
-                              className="button"
-                              onClick={() => {
-                                this.setState({
-                                  category,
-                                  isRemoving: true,
-                                  errors: [],
-                                });
-                              }}
-                            >
-                              <Icon iconName="times" />
-                              <span>Remove</span>
-                            </button>
-                          </div>
-                        )}
-                      />
-                      <br />
-                      <Pagination
-                        page={this.state.page}
-                        isLoading={!this.state.isLoaded}
-                        hasNextPage={
-                          CategoryManager.categories.length >
-                          this.CATEGORIES_PER_PAGE
-                        }
-                        handlePaginate={async (page) => {
-                          this.setState({ isLoaded: false });
-                          await CategoryManager.findAll({
-                            page,
-                            limit: this.CATEGORIES_PER_PAGE,
-                          });
-                          this.setState({ page, isLoaded: true });
+                  <>
+                    <Card className="is-fixed-height">
+                      <h2 className="title is-4">New Category</h2>
+                      <NameForm
+                        buttonText="Create"
+                        tooltip="Name of the category."
+                        handleSubmit={async ({ name }, setSubmitting) => {
+                          try {
+                            await CategoryManager.create({
+                              name,
+                            });
+                            setSubmitting(false);
+                            this.setState({
+                              errors: [],
+                              didCreate: true,
+                            });
+                          } catch (e) {
+                            setSubmitting(false);
+                            if (e.response) {
+                              this.setState({ errors: e.response.data });
+                            }
+                          }
                         }}
                       />
-                    </>
-                  )
+                      {!this.state.isEditing && (
+                        <>
+                          <br />
+                          <Errors errors={this.state.errors} />
+                        </>
+                      )}
+                    </Card>
+                  </>
                 )}
-              </Card>
-            </div>
-            <div className="column is-4">
-              {this.state.didCreate ? (
-                <Notification className="is-primary">
-                  Category created.{' '}
-                  <a
-                    onClick={() => {
-                      this.setState({ didCreate: false });
-                    }}
-                  >
-                    Create another?
-                  </a>
-                </Notification>
-              ) : (
-                <>
-                  <Card className="is-fixed-height">
-                    <h2 className="title is-4">New Category</h2>
-                    <NameForm
-                      buttonText="Create"
-                      tooltip="Name of the category."
-                      handleSubmit={async ({ name }, setSubmitting) => {
-                        try {
-                          await CategoryManager.create({
-                            name,
-                          });
-                          setSubmitting(false);
-                          this.setState({
-                            errors: [],
-                            didCreate: true,
-                          });
-                        } catch (e) {
-                          setSubmitting(false);
-                          if (e.response) {
-                            this.setState({ errors: e.response.data });
-                          }
-                        }
-                      }}
-                    />
-                    {!this.state.isEditing && (
-                      <>
-                        <br />
-                        <Errors errors={this.state.errors} />
-                      </>
-                    )}
-                  </Card>
-                </>
-              )}
+              </div>
             </div>
           </div>
-        </Section>
+        </section>
         <Modal
           isActive={this.state.isEditing}
           hasControls={false}

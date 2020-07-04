@@ -38,7 +38,7 @@ Axios.defaults.baseURL = '/api/v1/';
     body = (
       <BrowserRouter>
         <>
-          <Helmet titleTemplate="%s - Explore" />
+          <Helmet titleTemplate="%s - OutData" />
           <Navbar />
           <Switch>
             {views.map((view, index) => (
