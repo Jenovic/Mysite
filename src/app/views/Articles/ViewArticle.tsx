@@ -27,31 +27,32 @@ export default class SingleArticle extends React.Component<Props, State> {
     return (
       <>
         <Helmet title={'Sample article title'} />
-        <Breadcrumb
-          breadcrumbs={[
-            {
-              name: 'Articles',
-              link: '/articles',
-            },
-            {
-              name: 'article',
-              link: '/article',
-            },
-          ]}
-          className="article"
-          backText="Return to Articles"
-          handleBack={() => {
-            this.props.history.push('/articles');
-          }}
-        />
-        <div className="columns article-view">
+        <section className="article-view">
+          <Breadcrumb
+            breadcrumbs={[
+              {
+                name: 'Articles',
+                link: '/articles',
+              },
+              {
+                name: 'article',
+                link: '/article',
+              },
+            ]}
+            className="article"
+            backText="Return to Articles"
+            handleBack={() => {
+              this.props.history.push('/articles');
+            }}
+          />
+
           <div className="container single">
-            <div className="column">
+            <div className="cols">
               <ArticleViewMeta
                 title={
                   'Setting up automatic failover for your static websites hosted on'
                 }
-                authorName={'Sample Name'}
+                authorName={'Jenovic Lumu'}
               />
 
               <div className="article-view-content">
@@ -85,7 +86,7 @@ export default class SingleArticle extends React.Component<Props, State> {
               </div>
             </div>
           </div>
-        </div>
+        </section>
         <Footer />
       </>
     );

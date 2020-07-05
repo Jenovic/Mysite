@@ -18,6 +18,10 @@ import Loader from '../../components/Loader';
 import Pagination from '../../components/Pagination';
 import Breadcrumb from '../../components/Breadcrumb';
 
+interface Props {
+  history: any;
+}
+
 interface State {
   category: Category;
   didCreate: boolean;
@@ -29,7 +33,7 @@ interface State {
 }
 
 @observer
-export default class View extends React.Component<{}, State> {
+export default class View extends React.Component<Props, State> {
   CATEGORIES_PER_PAGE = 10;
 
   constructor(props) {
@@ -71,6 +75,10 @@ export default class View extends React.Component<{}, State> {
               link: '/admin/categories',
             },
           ]}
+          backText="Return to Admin"
+          handleBack={() => {
+            this.props.history.push('/admin');
+          }}
         />
         <section className="admin section">
           <div className="container">

@@ -2,18 +2,17 @@
   h1 {
     font-family: $primary-font;
     font-size: 32px;
-    margin: 0.5em 0 0.5em 0;
+    margin: 1.5em 0 0.5em 0;
 
     @include bp(md) {
       font-size: 40px;
-      padding: 0 1em;
     }
   }
 }
 
 .media {
   &.meta {
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 
     .media-left {
       img {

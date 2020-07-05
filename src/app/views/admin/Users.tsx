@@ -17,6 +17,10 @@ import Errors from '../../components/Errors';
 import ResourceList from '../../components/ResourceList';
 import Breadcrumb from '../../components/Breadcrumb';
 
+interface Props {
+  history: any;
+}
+
 interface State {
   admin: Admin;
   didCreate: boolean;
@@ -24,7 +28,7 @@ interface State {
 }
 
 @observer
-export default class View extends React.Component<{}, State> {
+export default class View extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +60,10 @@ export default class View extends React.Component<{}, State> {
               link: '/admin/users',
             },
           ]}
+          backText="Return to Admin"
+          handleBack={() => {
+            this.props.history.push('/admin');
+          }}
         />
         <section className="admin section">
           <div className="container">

@@ -61,19 +61,16 @@ class Navbar extends React.Component<Props, State> {
                 Home
               </a>
               <a className="navbar-item" href="#">
-                About Us
+                About us
               </a>
               <a className="navbar-item" href="/articles">
                 Articles
-              </a>
-              <a className="navbar-item" href="#">
-                Contact Us
               </a>
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <a className="button">Subscribe</a>
+                  <a className="button">Contact us</a>
                 </div>
               </div>
             </div>

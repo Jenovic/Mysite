@@ -3,5 +3,5 @@ import ViewArticle from './ViewArticle';
 
 export default [
   { path: '/articles', component: Articles },
-  { path: '/article', component: ViewArticle },
+  { path: '/articles/article', component: ViewArticle },
 ];

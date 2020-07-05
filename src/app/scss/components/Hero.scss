@@ -86,11 +86,11 @@
 
   .image-container {
     justify-content: center;
-    padding: 0 0 0 4em;
+    padding: 0;
     z-index: 999;
 
-    @media only screen and (max-width: 768px) {
-      padding: 0;
+    @include bp(md) {
+      padding: 3em 0 0 4em;
     }
 
     img {
@@ -252,13 +252,19 @@
         color: $started;
         display: flex;
         font-family: $primary-font;
-        font-style: italic;
         font-weight: 500;
         margin-left: 0.5em;
         margin-top: 5px;
 
         .link-text {
+          font-family: $primary-font;
           line-height: 2.1;
+        }
+
+        &:hover {
+          .link-text {
+            text-decoration: underline;
+          }
         }
       }
 
@@ -455,7 +461,7 @@ a {
 .hero {
   &.archive {
     background-color: $section-blue;
-    padding: 4em 0 0;
+    padding: 5em 0 0;
   }
 }
 
@@ -463,7 +469,6 @@ a {
   &.login-page,
   &.register-page {
     background-color: $light-gray;
-    // background-color: $purple;
 
     .card-register {
       margin-top: 3em;

@@ -476,7 +476,7 @@ export default class View extends React.Component<Props, State> {
               link: '/admin',
             },
             {
-              name: 'Modules',
+              name: 'Articles',
               link: '/admin/modules',
             },
             {
@@ -484,6 +484,10 @@ export default class View extends React.Component<Props, State> {
               link: window.location.pathname,
             },
           ]}
+          backText="Return to Articles"
+          handleBack={() => {
+            this.props.history.push('/admin/modules');
+          }}
         />
         <section className="admin section">
           <div className="container">

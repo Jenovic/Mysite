@@ -1,6 +1,8 @@
 # Jenovic Lumu website
 
 This is my personal website which will contain most of my work.
+https://befonts.com/kollektif-typeface.html
+https://www.canva.com/
 
 ## Installation
 

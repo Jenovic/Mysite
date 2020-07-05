@@ -1,5 +1,7 @@
 .navbar {
   background-color: $white;
+  // border-bottom: 2px solid $active;
+  padding: 10px 0;
   z-index: 1000 !important;
 
   a {
@@ -29,7 +31,7 @@
       padding: 0;
     }
     img {
-      max-height: 2.75rem;
+      max-height: 3rem;
     }
   }
 
@@ -50,13 +52,15 @@
       margin-left: 4em;
     }
     a.button {
-      border: 1px solid $circle-blue;
+      background-color: $blue-hover;
+      border: 1px solid $blue-hover;
       border-radius: 10px;
-      color: $circle-blue;
-      padding: 1.5em;
+      color: $white;
+      padding: 1.25em;
 
       &:hover {
-        background-color: $blue-hover;
+        background-color: lighten($blue-hover, 10%);
+        border: 1px solid lighten($blue-hover, 10%);
         color: $white;
       }
 

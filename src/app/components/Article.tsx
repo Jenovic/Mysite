@@ -20,7 +20,7 @@ class Article extends React.Component<Props> {
           className={`article-tile ${
             this.props.category ? this.props.category : ''
           }`}
-          to="/article"
+          to="/articles/article"
         >
           <div className="thumbnail">
             {this.props.category && (
