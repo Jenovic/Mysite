@@ -133,3 +133,21 @@ body {
 .align-center {
   align-items: center;
 }
+
+.has-padding {
+  padding: 3em 0;
+}
+
+.has-margin-top-1em {
+  margin: 1em 0 0;
+}
+
+form {
+  margin-bottom: 1.5rem;
+
+  .control {
+    button {
+      border-color: #dbdbdb !important;
+    }
+  }
+}

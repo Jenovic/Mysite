@@ -1,6 +1,8 @@
 .article-tile {
   background-color: $white !important;
-  box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
+  // box-shadow: 0 0 30px rgba(16, 14, 23, 0.25);
+  display: block;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   transition: width 2s;
   transition: all 0.2s ease-in-out;
   padding: 0;
@@ -39,6 +41,10 @@
       span {
         color: darken($title-blue, 5%);
       }
+
+      &__name {
+        padding: 5px 0 0;
+      }
     }
   }
 
@@ -75,7 +81,7 @@
 
   &:hover {
     transform: scale(1.05);
-    // transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     .content,
     .thumbnail {

@@ -13,18 +13,14 @@ export default class CallToAction extends React.Component {
             </div>
             <div className="col is-12 is-6-md cta-content">
               <Title
-                title="The best way to predict the future is to to create it."
+                title="The best way to create the future is to predict it."
                 size="5"
               />
               <div className="cta-content__button">
-                <button
-                  type="submit"
-                  className="button is-dark"
-                  disabled={false}
-                >
+                <a href="#" className="button is-dark">
                   <span>Read More</span>
                   <Icon iconName="arrow-right" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

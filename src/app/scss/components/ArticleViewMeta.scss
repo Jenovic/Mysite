@@ -2,7 +2,7 @@
   h1 {
     font-family: $primary-font;
     font-size: 32px;
-    margin: 1.5em 0 0.5em 0;
+    margin: 0;
 
     @include bp(md) {
       font-size: 40px;
@@ -40,4 +40,28 @@
 
 .featured-image {
   margin-bottom: 3em;
+}
+
+.article-thumbnail {
+  margin-bottom: 20px;
+  height: 180px;
+}
+
+.article-social {
+  h1 {
+    font-size: 18px;
+  }
+
+  a {
+    color: #007bca;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  span {
+    margin: 0 5px;
+  }
 }

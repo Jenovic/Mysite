@@ -15,7 +15,6 @@ import Tag from '../../components/Tag';
 import Title from '../../components/Title';
 import Category from '../../models/Category';
 import { Link } from 'react-router-dom';
-import ModuleItem from '../../components/ModuleItem';
 const background = require('../../assets/article.svg');
 
 interface Props {
@@ -51,29 +50,25 @@ export default class View extends React.Component<Props, State> {
 
   async componentDidMount() {
     if (!Auth.user) {
-      console.log('called');
       return;
     }
-    console.log('called 2');
+
     // Load content
     await CategoryManager.findAll();
-    console.log(CategoryManager.categories);
     const modules = await Promise.all(
       CategoryManager.categories.map((category) =>
         ModuleManager.findByCategory(category, { limit: 4 }),
       ),
     );
-    console.log(modules);
+
     this.setState({
       modules,
       categories: CategoryManager.categories,
       isLoaded: true,
     });
-    console.log('called 3');
   }
 
   render() {
-    console.log(CategoryManager.categories);
     return (
       <>
         <Helmet title={'Sample article archive'} />
@@ -86,7 +81,7 @@ export default class View extends React.Component<Props, State> {
               },
               {
                 name: 'Articles',
-                link: '/articles',
+                link: window.location.pathname,
               },
             ]}
             className="articles"
@@ -151,7 +146,7 @@ export default class View extends React.Component<Props, State> {
                         <div className="level-right">
                           <div className="level-item">
                             <Link to={categoryUrl} className="button is-text">
-                              <span>View all</span>
+                              <span>View more</span>
                               <Icon iconName="arrow-right" />
                             </Link>
                           </div>
@@ -163,7 +158,8 @@ export default class View extends React.Component<Props, State> {
                             key={module.uuid}
                             title={module.title}
                             author="Sanil Purryag"
-                            date="1d"
+                            date={module.createdAt.fromNow()}
+                            module={module}
                           />
                         ))}
                       </div>

@@ -74,16 +74,25 @@ export default class View extends React.Component<Props, State> {
                   })}
                 </div>
                 <div className="cols is-centered is-multiline articles">
-                  {this.state.modules.map((module, index) => {
+                  {this.state.modules.slice(0, 4).map((module) => {
                     return (
                       <Article
                         key={module.uuid}
                         title={module.title}
                         author="Sanil Purryag"
-                        date="1d"
+                        date={module.createdAt.fromNow()}
+                        module={module}
                       />
                     );
                   })}
+                  <div className="col is-12">
+                    <div className="view-all-button">
+                      <a href="/articles" className="button is-dark">
+                        <span>View All</span>
+                        <Icon iconName="arrow-right" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </>
             )}

@@ -19,6 +19,7 @@ import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
 import Breadcrumb from '../../components/Breadcrumb';
 import Icon from '../../components/Icon';
+import Article from '../../components/Article';
 
 declare var location: any;
 
@@ -166,7 +167,11 @@ export default class View extends React.Component<Props, State> {
               link: '/',
             },
             {
-              name: 'Modules',
+              name: 'Articles',
+              link: 'articles',
+            },
+            {
+              name: this.state.category ? this.state.category.name : '',
               link: window.location.pathname,
             },
           ]}
@@ -175,47 +180,20 @@ export default class View extends React.Component<Props, State> {
             this.props.history.push('/');
           }}
         />
-        <Section>
-          <Card
-            className="is-fixed-height"
-            footer={
-              this.state.isLoaded && modules && modules.length > 0 ? (
-                <div className="container">
-                  <div className="columns is-centered">
-                    <div className="column is-10-desktop is-12-tablet">
-                      <Pagination
-                        page={this.state.page}
-                        isLoading={!this.state.isLoaded}
-                        hasNextPage={modules.length > this.MODULES_PER_PAGE}
-                        handlePaginate={async (page) => {
-                          this.setState({ isLoaded: false });
-                          if (this.state.category) {
-                            this.setCategory(this.state.category.uuid, page);
-                            return;
-                          }
-                          if (this.state.search) {
-                            this.setSearchQuery(this.state.search, page);
-                            return;
-                          }
-                          this.setMandatory(page);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ) : null
-            }
-          >
-            <div className="columns is-centered">
+        <section className="admin section">
+          <div className="container">
+            <div className="columns is-centered has-margin-top-1em">
               <div className="column is-10-desktop is-12-tablet">
                 <div className="columns">
                   <div className="column is-9-desktop is-7-tablet">
-                    <h1 className="title is-4">{this.getTitle()}</h1>
+                    <h1 className="title is-4">
+                      {this.state.category && 'Category >'} {this.getTitle()}
+                    </h1>
                   </div>
                   <div className="column is-3-desktop is-5-tablet">
                     <SearchForm
                       search={this.state.search}
-                      placeholder="Search modules"
+                      placeholder="Search articles"
                       handleSubmit={async ({ search }, setSubmitting) => {
                         if (search) {
                           this.setState({ isLoaded: false });
@@ -236,12 +214,13 @@ export default class View extends React.Component<Props, State> {
                   <>
                     <div className="columns is-multiline is-mobile">
                       {modules.slice(0, this.MODULES_PER_PAGE).map((module) => (
-                        <div
+                        <Article
                           key={module.uuid}
-                          className="column is-3-desktop is-4-tablet is-6-mobile"
-                        >
-                          <ModuleItem module={module} />
-                        </div>
+                          title={module.title}
+                          author="Sanil Purryag"
+                          date={module.createdAt.fromNow()}
+                          module={module}
+                        />
                       ))}
                     </div>
                   </>
@@ -270,8 +249,33 @@ export default class View extends React.Component<Props, State> {
                 )}
               </div>
             </div>
-          </Card>
-        </Section>
+          </div>
+        </section>
+        {this.state.isLoaded && modules && modules.length > 0 ? (
+          <div className="container">
+            <div className="columns is-centered">
+              <div className="column is-10-desktop is-12-tablet">
+                <Pagination
+                  page={this.state.page}
+                  isLoading={!this.state.isLoaded}
+                  hasNextPage={modules.length > this.MODULES_PER_PAGE}
+                  handlePaginate={async (page) => {
+                    this.setState({ isLoaded: false });
+                    if (this.state.category) {
+                      this.setCategory(this.state.category.uuid, page);
+                      return;
+                    }
+                    if (this.state.search) {
+                      this.setSearchQuery(this.state.search, page);
+                      return;
+                    }
+                    this.setMandatory(page);
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        ) : null}
       </>
     );
   }

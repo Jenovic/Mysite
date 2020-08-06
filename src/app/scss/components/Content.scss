@@ -1,6 +1,29 @@
 .content {
   .articles {
     padding: 2em 0;
+
+    .view-all-button {
+      display: flex;
+      justify-content: center;
+
+      a {
+        background-color: $white !important;
+        border: 1px solid $circle-blue !important;
+        border-radius: 10px;
+        color: $circle-blue !important;
+        font-family: $primary-font;
+        padding: 1.2em;
+
+        &:hover {
+          background-color: $blue-hover !important;
+          color: $white !important;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
 }
 
