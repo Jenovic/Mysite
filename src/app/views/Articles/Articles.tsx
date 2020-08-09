@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import { Fade } from 'react-reveal';
 import { observer } from 'mobx-react';
 import Auth from '../../services/Auth';
 import CategoryManager from '../../services/CategoryManager';
@@ -91,33 +92,37 @@ export default class View extends React.Component<Props, State> {
             }}
           />
 
-          <div className="top-content">
-            <div className="container articles" style={sectionStyle}>
-              <Title
-                title="Find here what you're looking for"
-                color="white"
-                size="1"
-                hasMaxWidth={true}
-              />
-              <SearchForm
-                placeholder="Search articles"
-                handleSubmit={({ search }, setSubmitting) => {
-                  setSubmitting(false);
-                  if (search) {
-                    this.props.history.push(`/modules?search=${search}`);
-                  }
-                }}
-              />
+          <Fade bottom>
+            <div className="top-content">
+              <div className="container articles" style={sectionStyle}>
+                <Title
+                  title="Find here what you're looking for"
+                  color="white"
+                  size="1"
+                  hasMaxWidth={true}
+                />
+                <SearchForm
+                  placeholder="Search articles"
+                  handleSubmit={({ search }, setSubmitting) => {
+                    setSubmitting(false);
+                    if (search) {
+                      this.props.history.push(`/modules?search=${search}`);
+                    }
+                  }}
+                />
+              </div>
             </div>
-          </div>
+          </Fade>
 
-          <div className="meta-category is-centered">
-            <Icon iconName="tag" />
-            {CategoryManager.categories.map((category) => {
-              const categoryUrl = `/modules?category=${category.uuid}`;
-              return <Tag tagName={category.name} link={categoryUrl} />;
-            })}
-          </div>
+          <Fade bottom>
+            <div className="meta-category is-centered">
+              <Icon iconName="tag" />
+              {CategoryManager.categories.map((category) => {
+                const categoryUrl = `/modules?category=${category.uuid}`;
+                return <Tag tagName={category.name} link={categoryUrl} />;
+              })}
+            </div>
+          </Fade>
         </section>
         <section className="is-fullheight is-primary content">
           <div className="container archive">
@@ -135,35 +140,37 @@ export default class View extends React.Component<Props, State> {
 
                   return (
                     <>
-                      <div className="level">
-                        <div className="level-left">
-                          <div className="level-item">
-                            <Link to={categoryUrl}>
-                              <h2 className="title is-4">{category.name}</h2>
-                            </Link>
+                      <Fade bottom>
+                        <div className="level">
+                          <div className="level-left">
+                            <div className="level-item">
+                              <Link to={categoryUrl}>
+                                <h2 className="title is-4">{category.name}</h2>
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="level-right">
+                            <div className="level-item">
+                              <Link to={categoryUrl} className="button is-text">
+                                <span>View more</span>
+                                <Icon iconName="arrow-right" />
+                              </Link>
+                            </div>
                           </div>
                         </div>
-                        <div className="level-right">
-                          <div className="level-item">
-                            <Link to={categoryUrl} className="button is-text">
-                              <span>View more</span>
-                              <Icon iconName="arrow-right" />
-                            </Link>
-                          </div>
+                        <div className="columns is-multiline is-mobile">
+                          {modules.slice(0, 4).map((module) => (
+                            <Article
+                              key={module.uuid}
+                              title={module.title}
+                              author="Sanil Purryag"
+                              date={module.createdAt.fromNow()}
+                              module={module}
+                            />
+                          ))}
                         </div>
-                      </div>
-                      <div className="columns is-multiline is-mobile">
-                        {modules.slice(0, 4).map((module) => (
-                          <Article
-                            key={module.uuid}
-                            title={module.title}
-                            author="Sanil Purryag"
-                            date={module.createdAt.fromNow()}
-                            module={module}
-                          />
-                        ))}
-                      </div>
-                      <br />
+                        <br />
+                      </Fade>
                     </>
                   );
                 })}

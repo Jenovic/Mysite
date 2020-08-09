@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { observer } from 'mobx-react';
+import { Fade } from 'react-reveal';
 import * as queryString from 'query-string';
 import { find } from 'lodash';
 import { Link } from 'react-router-dom';
@@ -180,75 +181,83 @@ export default class View extends React.Component<Props, State> {
 
   renderTop() {
     return (
-      <div className="column is-12-desktop is-12-tablet article-view-title">
-        <div className="container single">
-          <h1>{this.state.module.title}</h1>
-          <span>
-            {this.state.module.createdAt.fromNow()}
-            <Icon iconName="bookmark" />
-          </span>
+      <Fade bottom>
+        <div className="column is-12-desktop is-12-tablet article-view-title">
+          <div className="container single">
+            <h1>{this.state.module.title}</h1>
+            <span>
+              {this.state.module.createdAt.fromNow()}
+              <Icon iconName="bookmark" />
+            </span>
+          </div>
         </div>
-      </div>
+      </Fade>
     );
   }
 
   renderThumbnail() {
     return (
-      <div
-        className="column is-12-desktop is-12-tablet article-thumbnail"
-        style={{
-          backgroundImage: `url(${this.state.module.thumbnail})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-        }}
-      ></div>
+      <Fade bottom>
+        <div
+          className="column is-12-desktop is-12-tablet article-thumbnail"
+          style={{
+            backgroundImage: `url(${this.state.module.thumbnail})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        ></div>
+      </Fade>
     );
   }
 
   renderAuthorMeta() {
     return (
-      <div className="column is-2-desktop is-12-tablet">
-        <div className="media meta">
-          <div className="media-left image is-64x64">
-            <img
-              src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
-              alt="author-avatar"
-            />
-          </div>
-          <div className="media-content">
-            <p className="author-name">Jenovic Lumu</p>
-            <p className="publish-date">
-              {this.state.module.createdAt.fromNow()}
-            </p>
+      <Fade bottom>
+        <div className="column is-2-desktop is-12-tablet">
+          <div className="media meta">
+            <div className="media-left image is-64x64">
+              <img
+                src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
+                alt="author-avatar"
+              />
+            </div>
+            <div className="media-content">
+              <p className="author-name">Jenovic Lumu</p>
+              <p className="publish-date">
+                {this.state.module.createdAt.fromNow()}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </Fade>
     );
   }
 
   renderSocial() {
     return (
-      <div className="column is-2-desktop is-12-tablet">
-        <div className="article-social">
-          <h1>Share this article</h1>
-          <a
-            href="https://www.facebook.com/sharer/sharer.php?u=example.org"
-            target="blank"
-          >
-            <Icon iconPack="fab" iconName="facebook fa-lg" />
-          </a>
-          <a
-            href="https://twitter.com/intent/tweet"
-            className="twitter-share-button"
-          >
-            <Icon iconPack="fab" iconName="twitter fa-lg" />
-          </a>
-          <a href="https://www.linkedin.com/sharing/share-offsite">
-            <Icon iconPack="fab" iconName="linkedin fa-lg" />
-          </a>
+      <Fade bottom>
+        <div className="column is-2-desktop is-12-tablet">
+          <div className="article-social">
+            <h1>Share this article</h1>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=example.org"
+              target="blank"
+            >
+              <Icon iconPack="fab" iconName="facebook fa-lg" />
+            </a>
+            <a
+              href="https://twitter.com/intent/tweet"
+              className="twitter-share-button"
+            >
+              <Icon iconPack="fab" iconName="twitter fa-lg" />
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite">
+              <Icon iconPack="fab" iconName="linkedin fa-lg" />
+            </a>
+          </div>
         </div>
-      </div>
+      </Fade>
     );
   }
 
@@ -269,11 +278,13 @@ export default class View extends React.Component<Props, State> {
           {slides.map((slide) => {
             return (
               <>
-                <h1 className="title">{slide.title}</h1>
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{ __html: slide.content }}
-                />
+                <Fade bottom>
+                  <h1 className="title">{slide.title}</h1>
+                  <div
+                    className="content"
+                    dangerouslySetInnerHTML={{ __html: slide.content }}
+                  />
+                </Fade>
               </>
             );
           })}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { observer } from 'mobx-react';
+import { Fade } from 'react-reveal';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Article from '../components/Article';
@@ -49,51 +50,57 @@ export default class View extends React.Component<Props, State> {
         <Hero />
         <section className="is-fullheight is-primary content">
           <div className="container archive">
-            <div className="level">
-              <Title title="Latest articles and news" size="1" color="blue" />
-              <SearchForm
-                placeholder="Search articles"
-                handleSubmit={({ search }, setSubmitting) => {
-                  setSubmitting(false);
-                  if (search) {
-                    this.props.history.push(`/modules?search=${search}`);
-                  }
-                }}
-              />
-            </div>
+            <Fade bottom>
+              <div className="level">
+                <Title title="Latest articles and news" size="1" color="blue" />
+                <SearchForm
+                  placeholder="Search articles"
+                  handleSubmit={({ search }, setSubmitting) => {
+                    setSubmitting(false);
+                    if (search) {
+                      this.props.history.push(`/modules?search=${search}`);
+                    }
+                  }}
+                />
+              </div>
+            </Fade>
 
             {!this.state.isLoaded ? (
               <Loader />
             ) : (
               <>
-                <div className="meta-category is-centered">
-                  <Icon iconName="tag" />
-                  {CategoryManager.categories.map((category) => {
-                    const categoryUrl = `/modules?category=${category.uuid}`;
-                    return <Tag tagName={category.name} link={categoryUrl} />;
-                  })}
-                </div>
-                <div className="cols is-centered is-multiline articles">
-                  {this.state.modules.slice(0, 4).map((module) => {
-                    return (
-                      <Article
-                        key={module.uuid}
-                        title={module.title}
-                        author="Sanil Purryag"
-                        date={module.createdAt.fromNow()}
-                        module={module}
-                      />
-                    );
-                  })}
-                  <div className="col is-12">
-                    <div className="view-all-button">
-                      <a href="/articles" className="button is-dark">
-                        <span>View All</span>
-                        <Icon iconName="arrow-right" />
-                      </a>
+                <Fade bottom>
+                  <div className="meta-category is-centered">
+                    <Icon iconName="tag" />
+                    {CategoryManager.categories.map((category) => {
+                      const categoryUrl = `/modules?category=${category.uuid}`;
+                      return <Tag tagName={category.name} link={categoryUrl} />;
+                    })}
+                  </div>
+                </Fade>
+                <Fade bottom>
+                  <div className="cols is-centered is-multiline articles">
+                    {this.state.modules.slice(0, 4).map((module) => {
+                      return (
+                        <Article
+                          key={module.uuid}
+                          title={module.title}
+                          author="Sanil Purryag"
+                          date={module.createdAt.fromNow()}
+                          module={module}
+                        />
+                      );
+                    })}
+                    <div className="col is-12">
+                      <div className="view-all-button">
+                        <a href="/articles" className="button is-dark">
+                          <span>View All</span>
+                          <Icon iconName="arrow-right" />
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Fade>
               </>
             )}
           </div>

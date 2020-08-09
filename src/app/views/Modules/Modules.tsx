@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
+import { Fade } from 'react-reveal';
 import * as queryString from 'query-string';
 import { find } from 'lodash';
 // import * as ReactGA from 'react-ga';
@@ -184,45 +185,51 @@ export default class View extends React.Component<Props, State> {
           <div className="container">
             <div className="columns is-centered has-margin-top-1em">
               <div className="column is-10-desktop is-12-tablet">
-                <div className="columns">
-                  <div className="column is-9-desktop is-7-tablet">
-                    <h1 className="title is-4">
-                      {this.state.category && 'Category >'} {this.getTitle()}
-                    </h1>
+                <Fade bottom>
+                  <div className="columns">
+                    <div className="column is-9-desktop is-7-tablet">
+                      <h1 className="title is-4">
+                        {this.state.category && 'Category >'} {this.getTitle()}
+                      </h1>
+                    </div>
+                    <div className="column is-3-desktop is-5-tablet">
+                      <SearchForm
+                        search={this.state.search}
+                        placeholder="Search articles"
+                        handleSubmit={async ({ search }, setSubmitting) => {
+                          if (search) {
+                            this.setState({ isLoaded: false });
+                            await this.setSearchQuery(search);
+                            this.props.history.replace(
+                              `/modules?search=${search}`,
+                            );
+                          }
+                          setSubmitting(false);
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="column is-3-desktop is-5-tablet">
-                    <SearchForm
-                      search={this.state.search}
-                      placeholder="Search articles"
-                      handleSubmit={async ({ search }, setSubmitting) => {
-                        if (search) {
-                          this.setState({ isLoaded: false });
-                          await this.setSearchQuery(search);
-                          this.props.history.replace(
-                            `/modules?search=${search}`,
-                          );
-                        }
-                        setSubmitting(false);
-                      }}
-                    />
-                  </div>
-                </div>
+                </Fade>
                 <br />
                 {!this.state.isLoaded ? (
                   <Loader />
                 ) : modules && modules.length > 0 ? (
                   <>
-                    <div className="columns is-multiline is-mobile">
-                      {modules.slice(0, this.MODULES_PER_PAGE).map((module) => (
-                        <Article
-                          key={module.uuid}
-                          title={module.title}
-                          author="Sanil Purryag"
-                          date={module.createdAt.fromNow()}
-                          module={module}
-                        />
-                      ))}
-                    </div>
+                    <Fade bottom>
+                      <div className="columns is-multiline is-mobile">
+                        {modules
+                          .slice(0, this.MODULES_PER_PAGE)
+                          .map((module) => (
+                            <Article
+                              key={module.uuid}
+                              title={module.title}
+                              author="Sanil Purryag"
+                              date={module.createdAt.fromNow()}
+                              module={module}
+                            />
+                          ))}
+                      </div>
+                    </Fade>
                   </>
                 ) : (
                   <div className="columns is-centered">
