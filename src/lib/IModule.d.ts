@@ -11,6 +11,7 @@ interface IModule {
   approvedAt?: any;
   approvedBy?: any;
   version?: string;
+  createdBy?: string;
   categories?: ICategory[];
   slides?: ISlide[];
   questions?: IQuestion[];

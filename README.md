@@ -1,4 +1,4 @@
-# Jenovic Lumu website
+# Jenovic Lumu React Project
 
 This is my personal website which will contain most of my work.
 https://befonts.com/kollektif-typeface.html

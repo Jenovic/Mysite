@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import Module from '../models/Module';
 import Tooltip from './Tooltip';
 import Icon from './Icon';
+import AdminAuth from '../services/Auth';
 
 interface Props {
   module?: Module;
@@ -29,6 +30,7 @@ export default class ModuleForm extends React.Component<Props> {
           questionCount: '',
           passMark: '',
           version: this.props.module ? this.props.module.version : '1.0',
+          createdBy: AdminAuth.user.name,
         }}
         enableReinitialize
         onSubmit={async (values, { setSubmitting }) => {

@@ -108,6 +108,12 @@ export default class Module extends Model<Module> implements IModule {
   })
   public version: string;
 
+  @Property()
+  @Column({
+    type: Sequelize.STRING,
+  })
+  public createdBy: string;
+
   @BelongsToMany(() => Category, () => ModuleCategory)
   public categories: Category[];
 

@@ -19,6 +19,7 @@ export default class Module extends Resource implements IModule {
   categories?: Category[];
   slides?: Slide[];
   questions?: Question[];
+  createdBy?: string;
 
   constructor(data: Partial<Module>) {
     super(data);

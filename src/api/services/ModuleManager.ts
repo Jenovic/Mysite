@@ -120,7 +120,7 @@ export default class ModuleManager implements IManager<Module> {
   }
 
   public async create(fields: Partial<Module>): Promise<Module> {
-    const module = await Module.create(pick(fields, ['title']));
+    const module = await Module.create(pick(fields, ['title', 'createdBy']));
     return this.find(module.uuid.toString());
   }
 
@@ -143,6 +143,7 @@ export default class ModuleManager implements IManager<Module> {
           'isVerifiable',
           'verifiableHours',
           'version',
+          'createdBy',
         ]),
         fields,
       ),
