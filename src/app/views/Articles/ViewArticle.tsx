@@ -185,10 +185,18 @@ export default class View extends React.Component<Props, State> {
         <div className="column is-12-desktop is-12-tablet article-view-title">
           <div className="container single">
             <h1>{this.state.module.title}</h1>
-            <span>
-              {this.state.module.createdAt.fromNow()}
-              <Icon iconName="bookmark" />
-            </span>
+            <div className="media meta">
+              <div className="media-left image is-64x64">
+                <img
+                  src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
+                  alt="author-avatar"
+                />
+              </div>
+              <div className="media-content">
+                <p className="author-name">{this.state.module.createdBy}</p>
+                <p className="date">{this.state.module.createdAt.fromNow()}</p>
+              </div>
+            </div>
           </div>
         </div>
       </Fade>
@@ -196,38 +204,47 @@ export default class View extends React.Component<Props, State> {
   }
 
   renderThumbnail() {
+    console.log(this.state.module.thumbnail);
     return (
       <Fade bottom>
-        <div
-          className="column is-12-desktop is-12-tablet article-thumbnail"
-          style={{
-            backgroundImage: `url(${this.state.module.thumbnail})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-          }}
-        ></div>
+        <div className="column is-2-desktop is-12-tablet"></div>
+        {this.state.module.thumbnail !== null ? (
+          <div
+            className="column is-8-desktop is-12-tablet article-thumbnail"
+            style={{
+              backgroundImage: `url(${this.state.module.thumbnail})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+            }}
+          ></div>
+        ) : (
+          <div
+            className="column is-8-desktop is-12-tablet article-thumbnail"
+            style={{
+              backgroundImage: `
+              url(${require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+            }}
+          ></div>
+        )}
+        <div className="column is-2-desktop is-12-tablet"></div>
       </Fade>
     );
   }
 
-  renderAuthorMeta() {
+  renderArticleMeta() {
     return (
       <Fade bottom>
-        <div className="column is-2-desktop is-12-tablet">
-          <div className="media meta">
-            <div className="media-left image is-64x64">
-              <img
-                src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
-                alt="author-avatar"
-              />
-            </div>
-            <div className="media-content">
-              <p className="author-name">Jenovic Lumu</p>
-              <p className="publish-date">
-                {this.state.module.createdAt.fromNow()}
-              </p>
-            </div>
+        <div className="column is-2-desktop is-12-tablet article-left-sidebar">
+          <div className="article-left-sidebar__content">
+            <Icon iconPack="far" iconName="comments fa-lg" />
+            <p>2</p>
+            <Icon iconPack="far" iconName="thumbs-up fa-lg" />
+            <p>15</p>
+            <Icon iconPack="far" iconName="bookmark" />
           </div>
         </div>
       </Fade>
@@ -267,12 +284,12 @@ export default class View extends React.Component<Props, State> {
     const slides = this.state.module.slides;
     return (
       <div
-        className="is-fixed-height module-content"
+        className="is-fixed-height article-content"
         // footer={null}
         // image={this.state.isLoaded ? this.state.module.thumbnail : ''}
       >
         <div
-          className="module-content-inner"
+          className="article-content-inner"
           // style={{ height: this.state.slideHeight }}
         >
           {slides.map((slide) => {
@@ -324,16 +341,16 @@ export default class View extends React.Component<Props, State> {
         <section className="article-view">
           <div className="container">
             <div className="columns is-multiline has-padding ">
-              <div className="column is-3-desktop is-12-tablet">
-                {/* <div ref={(e) => (this.sidebar = e)}> */}
-                {/* {this.renderSidebar()} */}
-                {/* </div> */}
-              </div>
+              {/* <div className="column is-3-desktop is-12-tablet"> */}
+              {/* <div ref={(e) => (this.sidebar = e)}> */}
+              {/* {this.renderSidebar()} */}
+              {/* </div> */}
+              {/* </div> */}
               {this.state.isLoaded && (
                 <>
                   {this.renderTop()}
                   {this.renderThumbnail()}
-                  {this.renderAuthorMeta()}
+                  {this.renderArticleMeta()}
                   <div className="column is-8-desktop is-12-tablet">
                     {this.renderSlide()}
                   </div>

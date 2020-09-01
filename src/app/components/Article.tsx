@@ -30,7 +30,14 @@ class Article extends React.Component<Props> {
             {this.props.category && (
               <span className="tag">{this.props.category}</span>
             )}
-            <img src={this.props.module.thumbnail} />
+            {this.props.module.thumbnail ? (
+              <img src={this.props.module.thumbnail} />
+            ) : (
+              <img
+                src={require('../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
+                alt="author-avatar"
+              />
+            )}
           </div>
           <div className="content">
             <h1>{this.props.title}</h1>

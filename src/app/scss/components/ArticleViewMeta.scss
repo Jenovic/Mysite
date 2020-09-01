@@ -1,4 +1,6 @@
 .article-view-title {
+  margin-bottom: 40px;
+
   h1 {
     font-family: $primary-font;
     font-size: 32px;
@@ -27,8 +29,13 @@
     .media-content {
       padding: 5px 0;
       .author-name,
-      .publish-date {
+      .date {
         font-family: $primary-font;
+      }
+
+      .date {
+        color: #a2a1a1 !important;
+        font-size: 14px;
       }
     }
 
@@ -43,8 +50,8 @@
 }
 
 .article-thumbnail {
-  margin-bottom: 20px;
-  height: 180px;
+  margin-bottom: 30px;
+  height: 200px;
 }
 
 .article-social {
@@ -53,7 +60,8 @@
   }
 
   a {
-    color: #007bca;
+    color: $color-dark-grey;
+    text-decoration: none;
 
     &:hover {
       transform: scale(1.05);
@@ -63,5 +71,34 @@
 
   span {
     margin: 0 5px;
+  }
+}
+
+.article-content {
+  &-inner {
+    .title {
+    }
+    .content {
+      p {
+        font-size: 19px;
+      }
+
+      iframe {
+        height: 400px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.article-left-sidebar {
+  &__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    p {
+      font-size: 14px;
+    }
   }
 }
