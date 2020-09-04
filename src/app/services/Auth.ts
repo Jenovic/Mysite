@@ -2,6 +2,7 @@ import Axios from 'axios';
 import { observable } from 'mobx';
 import * as Sentry from '@sentry/browser';
 import User from '../models/User';
+import UploadManager from './UploadManager';
 
 class Auth {
   @observable user: User;
@@ -80,6 +81,25 @@ class Auth {
       await Axios.post('auth/logout');
       this.clearUser();
     } catch (e) {}
+  }
+
+  public async uploadThumbnail(
+    user: User,
+    file,
+    onUploadProgress?: (progressEvent: any) => void,
+  ): Promise<Boolean> {
+    const upload = await UploadManager.uploadThumbnail(
+      file,
+      {
+        userUuid: user.uuid,
+      },
+      onUploadProgress,
+    );
+    const response = await Axios.put(`users/${user.uuid}`, {
+      thumbnail: upload.data.url,
+    });
+    this.setUser(new User(response.data));
+    return this.user !== null;
   }
 }
 

@@ -35,10 +35,12 @@ export default class UploadController {
     @MultipartFile('file') file: Express.Multer.File,
     @QueryParams('moduleUuid') moduleUuid?: string,
     @QueryParams('slideUuid') slideUuid?: string,
+    @QueryParams('userUuid') userUuid?: string,
   ) {
     return this.uploadManager.createImage(file, {
       moduleUuid: moduleUuid ? moduleUuid : null,
       slideUuid: slideUuid ? slideUuid : null,
+      userUuid: userUuid ? userUuid : null,
     });
   }
 
@@ -52,10 +54,12 @@ export default class UploadController {
     @MultipartFile('file') file: Express.Multer.File,
     @QueryParams('moduleUuid') moduleUuid?: string,
     @QueryParams('slideUuid') slideUuid?: string,
+    @QueryParams('userUuid') userUuid?: string,
   ) {
     return this.uploadManager.createImage(file, {
       moduleUuid: moduleUuid ? moduleUuid : null,
       slideUuid: slideUuid ? slideUuid : null,
+      userUuid: userUuid ? userUuid : null,
       width: 640,
       height: 480,
     });

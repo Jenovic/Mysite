@@ -55,6 +55,7 @@ export default class UploadManager implements IManager<Upload> {
       height?: number;
       moduleUuid?: any;
       slideUuid?: any;
+      userUuid?: any;
     } = {},
   ): Promise<Upload> {
     const mimeTypes = ['image/jpeg', 'image/png'];

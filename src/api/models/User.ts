@@ -71,6 +71,12 @@ export default class User extends Model<User> implements IUser {
   })
   public password?: string;
 
+  @Property()
+  @Column({
+    type: Sequelize.STRING,
+  })
+  public thumbnail?: string;
+
   /**
    * Handle user registration
    */

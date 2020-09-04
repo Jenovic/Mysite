@@ -12,6 +12,9 @@ import AdminForm from '../../components/AdminForm';
 import Card from '../../components/Card';
 import Errors from '../../components/Errors';
 import Breadcrumb from '../../components/Breadcrumb';
+import Icon from '../../components/Icon';
+import Modal from '../../components/Modal';
+import UploadForm from '../../components/UploadForm';
 
 interface Props {
   history: any;
@@ -20,6 +23,8 @@ interface Props {
 interface State {
   errors: string[];
   didSucceed: boolean;
+  isEditingThumbnail: boolean;
+  uploadProgress: number;
 }
 
 @observer
@@ -29,6 +34,8 @@ export default class View extends React.Component<Props, State> {
     this.state = {
       errors: [],
       didSucceed: false,
+      isEditingThumbnail: false,
+      uploadProgress: 0,
     };
   }
 
@@ -67,6 +74,35 @@ export default class View extends React.Component<Props, State> {
                     </Notification>
                   )}
                   <h1 className="title is-3">My Details</h1>
+
+                  <div className="level-right">
+                    <div className="level-item">
+                      <button
+                        className="button is-dark"
+                        onClick={() => {
+                          this.setState({
+                            didSucceed: false,
+                            isEditingThumbnail: true,
+                            errors: [],
+                          });
+                        }}
+                      >
+                        <span>Upload</span>
+                        <Icon iconName="image" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  {!!AdminAuth.user.thumbnail ? (
+                    <img src={AdminAuth.user.thumbnail} />
+                  ) : (
+                    <Notification>No thumbnail</Notification>
+                  )}
+
+                  <hr />
+
                   <AdminForm
                     admin={AdminAuth.user}
                     handleSubmit={async (
@@ -96,6 +132,61 @@ export default class View extends React.Component<Props, State> {
             </Card>
           </div>
         </section>
+        {/* Edit Thumbnail */}
+        <Modal
+          isActive={this.state.isEditingThumbnail}
+          hasControls={false}
+          handleClose={async () => {
+            this.setState({
+              isEditingThumbnail: false,
+              uploadProgress: 0,
+              errors: [],
+            });
+          }}
+        >
+          <div className="content">
+            <h2>Upload Thumbnail</h2>
+            <Errors errors={this.state.errors} />
+            <UploadForm
+              progress={this.state.uploadProgress}
+              handleSubmit={async (values, setSubmitting) => {
+                try {
+                  await AdminAuth.uploadThumbnail(
+                    AdminAuth.user,
+                    values.file,
+                    (progressEvent) => {
+                      const progress = Math.round(
+                        (progressEvent.loaded * 100) / progressEvent.total,
+                      );
+                      this.setState({
+                        uploadProgress: progress,
+                        errors: [],
+                      });
+                    },
+                  );
+                  this.setState({
+                    isEditingThumbnail: false,
+                    uploadProgress: 0,
+                    errors: [],
+                  });
+                } catch (e) {
+                  if (e.response) {
+                    this.setState({
+                      uploadProgress: 0,
+                      errors: e.response.data,
+                    });
+                  }
+                }
+                setSubmitting(false);
+              }}
+            />
+            <Notification>
+              <Icon iconName="info-circle" />
+              Images uploaded will be automatically resized to{' '}
+              <strong>640x480</strong> pixels
+            </Notification>
+          </div>
+        </Modal>
       </>
     );
   }

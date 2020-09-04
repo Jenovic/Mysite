@@ -4,6 +4,7 @@ import * as queryString from 'query-string';
 interface UploadOptions {
   moduleUuid?: string;
   slideUuid?: string;
+  userUuid?: string;
 }
 
 type OnUploadProgress = (progressEvent: any) => void;

@@ -3,6 +3,7 @@ import { Table, Model, Column, ForeignKey } from 'sequelize-typescript';
 import { Property } from '@tsed/common';
 import Module from '../models/Module';
 import Slide from '../models/Slide';
+import User from '../models/User';
 
 @Table({
   tableName: 'uploads',
@@ -46,6 +47,13 @@ export default class Upload extends Model<Upload> implements IUpload {
   })
   public slideUuid: Sequelize.DataTypeUUID;
 
+  @Property()
+  @ForeignKey(() => User)
+  @Column({
+    type: Sequelize.UUID,
+  })
+  public userUuid: Sequelize.DataTypeUUID;
+
   /**
    * Hide specific fields publicly
    */
@@ -53,6 +61,7 @@ export default class Upload extends Model<Upload> implements IUpload {
     const values = Object.assign({}, this.get());
     delete values.moduleUuid;
     delete values.slideUuid;
+    delete values.userUuid;
     delete values.deletedAt;
     return values;
   }

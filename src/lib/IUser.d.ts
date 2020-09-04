@@ -3,6 +3,7 @@ interface IUser {
   name: string;
   email: string;
   password?: string;
+  thumbnail?: string;
   createdAt?: any;
   updatedAt?: any;
   deletedAt?: any;
