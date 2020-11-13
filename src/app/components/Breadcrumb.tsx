@@ -12,7 +12,7 @@ interface Props {
 class Breadcrumb extends React.Component<Props> {
   render() {
     return (
-      <nav className="breadcrumb">
+      <section className="breadcrumb">
         <div
           className={`container ${
             this.props.className ? this.props.className : ''
@@ -51,7 +51,7 @@ class Breadcrumb extends React.Component<Props> {
             </div>
           </div>
         </div>
-      </nav>
+      </section>
     );
   }
 }

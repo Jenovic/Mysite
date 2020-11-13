@@ -18,6 +18,10 @@ export default class UserManager implements IManager<User> {
     return User.find({ where: { email } });
   }
 
+  public async findByName(name: string): Promise<User> {
+    return User.find({ where: { name } });
+  }
+
   public async create(fields: Partial<User>): Promise<User> {
     const user = await User.create(fields);
     return this.find(user.uuid.toString());

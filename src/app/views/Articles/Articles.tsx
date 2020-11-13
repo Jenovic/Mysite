@@ -163,7 +163,7 @@ export default class View extends React.Component<Props, State> {
                             <Article
                               key={module.uuid}
                               title={module.title}
-                              author="Sanil Purryag"
+                              author={module.createdBy}
                               date={module.createdAt.fromNow()}
                               module={module}
                             />

@@ -206,10 +206,10 @@ export default class View extends React.Component<Props, State> {
     );
   }
 
-  renderAuthorMeta() {
+  renderArticleMeta() {
     return (
       <div className="column is-2-desktop is-12-tablet">
-        <div className="media meta">
+        {/* <div className="media meta">
           <div className="media-left image is-64x64">
             <img
               src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
@@ -222,7 +222,8 @@ export default class View extends React.Component<Props, State> {
               {this.state.module.createdAt.fromNow()}
             </p>
           </div>
-        </div>
+        </div> */}
+        <Icon iconPack="far" iconName="comments" />
       </div>
     );
   }
@@ -258,12 +259,12 @@ export default class View extends React.Component<Props, State> {
     const slides = this.state.module.slides;
     return (
       <div
-        className="is-fixed-height module-content"
+        className="is-fixed-height article-content"
         // footer={null}
         // image={this.state.isLoaded ? this.state.module.thumbnail : ''}
       >
         <div
-          className="module-content-inner"
+          className="article-content-inner"
           // style={{ height: this.state.slideHeight }}
         >
           {slides.map((slide) => {
@@ -322,7 +323,7 @@ export default class View extends React.Component<Props, State> {
                 <>
                   {this.renderTop()}
                   {this.renderThumbnail()}
-                  {this.renderAuthorMeta()}
+                  {this.renderArticleMeta()}
                   <div className="column is-8-desktop is-12-tablet">
                     {this.renderSlide()}
                   </div>

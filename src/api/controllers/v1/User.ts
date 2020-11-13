@@ -6,6 +6,7 @@ import {
   Put,
   Use,
   PathParams,
+  QueryParams,
   Delete,
 } from '@tsed/common';
 import { Description } from '@tsed/swagger';
@@ -25,6 +26,16 @@ export default class UserController implements IController<User> {
   @Description('Get a list of users')
   public async getAll(): Promise<User[]> {
     return this.userManager.findAll();
+  }
+
+  /**
+   * Get a user by name
+   */
+  @Get('/:name')
+  @Use(Authenticated)
+  @Description('Get a user by name')
+  public async getUser(@PathParams('name') name: string): Promise<User> {
+    return this.userManager.findByName(name);
   }
 
   /**

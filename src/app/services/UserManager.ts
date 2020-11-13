@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { observable } from 'mobx';
 import { findIndex } from 'lodash';
+import * as queryString from 'query-string';
 import User from '../models/User';
 
 class UserManager implements IManager<User> {
@@ -24,6 +25,11 @@ class UserManager implements IManager<User> {
 
   async find(uuid: string): Promise<User> {
     const response = await Axios.get(`users/${uuid}`);
+    return this.sync(new User(response.data));
+  }
+
+  async findByName(name: string): Promise<User> {
+    const response = await Axios.get(`users/${name}`);
     return this.sync(new User(response.data));
   }
 

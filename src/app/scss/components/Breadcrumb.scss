@@ -17,6 +17,12 @@
     }
   }
 
+  li:not(:last-child) {
+    a {
+      text-decoration: underline;
+    }
+  }
+
   a {
     font-size: 0.9em;
     color: $grey;
@@ -32,5 +38,10 @@
 
   @include touch {
     display: none;
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
   }
 }

@@ -9,8 +9,12 @@ import { Link } from 'react-router-dom';
 import Module from '../../models/Module';
 import Question from '../../models/Question';
 import ModuleManager from '../../services/ModuleManager';
+import AdminManager from '../../services/UserManager';
+import CategoryManager from '../../services/CategoryManager';
 import Auth from '../../services/Auth';
+import User from '../../models/User';
 import Answer from '../../models/Answer';
+import CommentForm from '../../components/CommentForm';
 
 import Section from '../../components/Section';
 import ModuleContents from '../../components/ModuleContents';
@@ -24,6 +28,8 @@ import Footer from '../../components/Footer';
 import ArticleViewMeta from '../../components/ArticleViewMeta';
 import Category from '../../models/Category';
 import Loader from '../../components/Loader';
+import Tag from '../../components/Tag';
+import { Formik } from 'formik';
 const bgImage = require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg');
 
 declare var location: any;
@@ -49,6 +55,7 @@ interface State {
   isSidebarMinimised: boolean;
   errors: string[];
   slideHeight: number | string;
+  adminThumbnail: string;
 }
 
 /**
@@ -72,6 +79,7 @@ export default class View extends React.Component<Props, State> {
       isSidebarMinimised: true,
       errors: [],
       slideHeight: 0,
+      adminThumbnail: '',
     };
     this.handleResize = this.handleResize.bind(this);
     // this.renderSidebar = this.renderSidebar.bind(this);
@@ -94,6 +102,15 @@ export default class View extends React.Component<Props, State> {
       this.handleResize();
       const query = queryString.parse(location.search);
     });
+
+    const user = await AdminManager.findByName(this.state.module.createdBy);
+
+    if (user) {
+      this.setState({ adminThumbnail: user.thumbnail });
+    }
+
+    await CategoryManager.findAll();
+
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -188,7 +205,11 @@ export default class View extends React.Component<Props, State> {
             <div className="media meta">
               <div className="media-left image is-64x64">
                 <img
-                  src={require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')}
+                  src={
+                    this.state.adminThumbnail
+                      ? this.state.adminThumbnail
+                      : require('../../assets/ilya-pavlov-OqtafYT5kTw-unsplash.jpg')
+                  }
                   alt="author-avatar"
                 />
               </div>
@@ -204,7 +225,7 @@ export default class View extends React.Component<Props, State> {
   }
 
   renderThumbnail() {
-    console.log(this.state.module.thumbnail);
+    // console.log(this.state.module.thumbnail);
     return (
       <Fade bottom>
         <div className="column is-2-desktop is-12-tablet"></div>
@@ -310,10 +331,47 @@ export default class View extends React.Component<Props, State> {
     );
   }
 
+  renderCategories() {
+    return (
+      <Fade bottom>
+        <div className="column is-12-desktop is-12-tablet meta-category is-centered">
+          <Icon iconName="tag" />
+          {CategoryManager.categories.map((category) => {
+            const categoryUrl = `/modules?category=${category.uuid}`;
+            return <Tag tagName={category.name} link={categoryUrl} />;
+          })}
+        </div>
+      </Fade>
+    );
+  }
+
+  renderComments() {
+    return (
+      <Fade bottom>
+        <div className="column is-2-desktop is-12-tablet"></div>
+        <div className="column is-8-desktop is-12-tablet is-centered">
+          <h1>Leave a comment</h1>
+          <br></br>
+          <CommentForm
+            placeholder="Comment"
+            handleSubmit={({ comment }, setSubmitting) => {
+              setSubmitting(false);
+              if (comment) {
+                this.props.history.push('/modules/comment');
+              }
+            }}
+          />
+        </div>
+        <div className="column is-2-desktop is-12-tablet"></div>
+      </Fade>
+    );
+  }
+
   render() {
     return (
       <>
         <Helmet title={this.state.isLoaded ? this.state.module.title : ''} />
+
         <Breadcrumb
           breadcrumbs={[
             {
@@ -329,7 +387,7 @@ export default class View extends React.Component<Props, State> {
               link: window.location.pathname,
             },
           ]}
-          backText="Return to Articles"
+          // backText="Return to Articles"
           handleBack={() => {
             if (!this.state.isTakingTest) {
               this.props.history.push('/articles');
@@ -338,6 +396,7 @@ export default class View extends React.Component<Props, State> {
             this.setState({ isLeaving: true });
           }}
         />
+
         <section className="article-view">
           <div className="container">
             <div className="columns is-multiline has-padding ">
@@ -355,6 +414,8 @@ export default class View extends React.Component<Props, State> {
                     {this.renderSlide()}
                   </div>
                   {this.renderSocial()}
+                  {this.renderCategories()}
+                  {this.renderComments()}
                 </>
               )}
             </div>
