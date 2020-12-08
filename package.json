@@ -39,7 +39,7 @@
     "express-handlebars": "^3.0.2",
     "express-sequelize-session": "^0.4.0",
     "express-session": "^1.15.6",
-    "fast-csv": "^2.5.0",
+    "fast-csv": "^4.3.6",
     "formik": "^1.5.4",
     "fuse.js": "^3.4.4",
     "get-video-id": "^3.1.4",
