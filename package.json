@@ -44,7 +44,7 @@
     "fuse.js": "^3.4.4",
     "get-video-id": "^3.1.4",
     "gh-pages": "^2.1.1",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "html-pdf": "^2.2.0",
     "lodash": "^4.17.11",
     "mobx": "^5.9.4",
